@@ -13,7 +13,7 @@ export default defineConfig({
     setupFiles: ["./src/test/setup.ts"],
     coverage: {
       provider: "v8",
-      all: true,
+      includeUntested: true,
       include: ["src/lib/**/*.ts"],
       exclude: [
         "src/lib/types/**",
