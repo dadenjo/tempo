@@ -1,65 +1,108 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+import { useMemo, useState } from "react";
+import { useStore, refresh } from "@/lib/state/store";
+import { dayKey, todayKey, formatDuration } from "@/lib/util/date";
+import { streakFromSessions, totalSecondsForDay } from "@/lib/sessions";
+import { StreakBadge } from "@/components/today/StreakBadge";
+import { TimerPanel } from "@/components/today/TimerPanel";
+import { TodaySessionList } from "@/components/today/TodaySessionList";
+import { Button, EmptyState } from "@/components/shared/ui";
+import { seedExampleData } from "@/lib/seed";
+
+export default function TodayPage() {
+  const { loaded, instruments, pieces, sessions } = useStore();
+  const [seeding, setSeeding] = useState(false);
+
+  const today = todayKey();
+  const todaySessions = useMemo(
+    () => sessions.filter((s) => dayKey(s.startedAt) === today),
+    [sessions, today],
+  );
+  const todayTotalSec = totalSecondsForDay(sessions, today);
+  const streak = streakFromSessions(sessions);
+  const primary = instruments.find((i) => i.primary) ?? instruments[0];
+
+  if (!loaded) return <PageSkeleton />;
+
+  const empty = instruments.length === 0 && pieces.length === 0 && sessions.length === 0;
+  if (empty) {
+    return (
+      <div className="relative aurora">
+        <header className="relative z-10 mb-8">
+          <h1 className="text-4xl font-semibold tracking-tight">Welcome to Tempo</h1>
+          <p className="text-[color:var(--muted)] mt-2 max-w-xl">
+            A quiet, local-first practice tracker. Add an instrument and a piece to get started, or seed the app with example data to feel it out.
           </p>
+        </header>
+        <div className="grid sm:grid-cols-2 gap-4 relative z-10">
+          <EmptyState
+            title="Get hands-on quickly"
+            description="Loads 30 days of synthetic practice across two instruments and four pieces so every screen has something to show."
+            action={
+              <Button
+                variant="primary"
+                onClick={async () => {
+                  setSeeding(true);
+                  await seedExampleData();
+                  await refresh();
+                  setSeeding(false);
+                }}
+                disabled={seeding}
+              >
+                {seeding ? "Seeding…" : "Seed with example data"}
+              </Button>
+            }
+          />
+          <EmptyState
+            title="Start from scratch"
+            description="Add your first instrument, then a few pieces from your repertoire, and use the Today timer to log practice as you go."
+            action={
+              <a href="/instruments" className="btn btn-ghost">Add instrument →</a>
+            }
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-8 relative aurora">
+      <header className="flex flex-wrap items-end justify-between gap-4 relative z-10">
+        <div>
+          <div className="text-xs uppercase tracking-wider text-[color:var(--muted)] mb-1">
+            {new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })}
+          </div>
+          <h1 className="text-3xl font-semibold tracking-tight">Today</h1>
         </div>
-      </main>
+        <div className="text-right">
+          <div className="text-xs uppercase tracking-wider text-[color:var(--muted)] mb-1">Practised today</div>
+          <div className="text-2xl font-semibold tabular-nums">{formatDuration(todayTotalSec)}</div>
+        </div>
+      </header>
+
+      <div className="grid lg:grid-cols-[1fr_18rem] gap-5 relative z-10">
+        <TimerPanel
+          instruments={instruments}
+          pieces={pieces}
+          defaultInstrumentId={primary?.id ?? null}
+        />
+        <StreakBadge current={streak.current} longest={streak.longest} />
+      </div>
+
+      <section className="relative z-10">
+        <h2 className="text-sm uppercase tracking-wider text-[color:var(--muted)] mb-3">Today's sessions</h2>
+        <TodaySessionList sessions={todaySessions} instruments={instruments} pieces={pieces} />
+      </section>
+    </div>
+  );
+}
+
+function PageSkeleton() {
+  return (
+    <div className="space-y-6">
+      <div className="h-10 w-40 rounded-md" style={{ background: "var(--bg-card)" }} />
+      <div className="h-64 rounded-2xl" style={{ background: "var(--bg-card)" }} />
     </div>
   );
 }
