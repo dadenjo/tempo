@@ -1,3 +1,16 @@
+/**
+ * @file-summary
+ * @capability tempo.instruments
+ * @hash sha256-b07b97856134a4d24d0b492caa7280593d84cd5dd92b2213e03516f2c7381086
+ * @generated 2026-05-26T21:17:28.857Z
+ *
+ * Vitest test suite for the instruments module covering CRUD operations and primary-instrument behavior. Tests verify that listInstruments returns primaries first, only one instrument can be primary at a time, update/delete operations work, and getPrimaryInstrument falls back to the first instrument when none is flagged primary. Uses freshDB() in beforeEach to reset state.
+ *
+ * @exports 
+ * @imports vitest (describe, it, expect, beforeEach), @/lib/instruments (createInstrument, deleteInstrument, getInstrument, getPrimaryInstrument, listInstruments, updateInstrument, defaultEmojiFor), @/test/dbHelper (freshDB)
+ * @key-functions
+ * @evidence src/lib/instruments/__tests__/instruments.test.ts:1-37
+ */
 import { describe, it, expect, beforeEach } from "vitest";
 import { createInstrument, deleteInstrument, getInstrument, getPrimaryInstrument, listInstruments, updateInstrument, defaultEmojiFor } from "@/lib/instruments";
 import { freshDB } from "@/test/dbHelper";

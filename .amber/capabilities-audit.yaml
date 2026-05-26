@@ -1,0 +1,35 @@
+capabilities:
+  tempo.goals:
+    mission: "Persist user practice goals and evaluate progress against logged sessions."
+    risks: ["Piece-ready-by uses a hardcoded 600-minute = 100% heuristic (src/lib/goals/index.ts:102), which may not reflect actual piece difficulty", "Status logic returns 'behind' when a piece goal is misconfigured (per test at src/lib/goals/__tests__/goals.test.ts:58-78), which may mask configuration errors", "Progress evaluation depends on caller supplying the full sessions list; correctness hinges on upstream data completeness"]
+    data_classes: ["Goal records (type, targetMinutes, pieceId, dueDate, perWeek)", "Session references (durations, pieceId, instrument, dates)"]
+    stakeholders: ["practitioner/end user"]
+  tempo.instruments:
+    mission: "Persist and manage a user's instruments with a single-primary selection."
+    risks: ["Primary-flag invariant depends on the readwrite transaction in clearPrimaryFlag completing correctly across all rows", "getPrimaryInstrument fallback to the first item may mask cases where no primary is explicitly set"]
+    stakeholders: ["Client-side app users of the instruments module"]
+  tempo.persistence:
+    mission: "Persist instruments, pieces, sessions, and goals locally in the browser and expose them to the UI."
+    risks: ["`getDB` throws when `indexedDB` is undefined (e.g., SSR or unsupported environments) [src/lib/persistence/db.ts:25]", "Schema is pinned at version 1 with no migration logic visible in the reviewed files [src/lib/persistence/db.ts:4-21]", "`ensureLoaded` guards against concurrent initial loads via a single `loadingPromise`, but no error handling is shown [src/lib/state/store.ts:56-61]", "Seed routine uses Math.sin-based pseudo-randomness, not cryptographically random [src/lib/seed/index.ts:111-114]"]
+    data_classes: [instruments, pieces, sessions, goals, meta]
+  tempo.pieces:
+    mission: "Maintain a piece repertoire and identify neglected pieces from practice session history."
+    risks: ["pieceRotation hardcodes a 14-day neglect threshold (src/lib/pieces/index.ts:135) with no configurability visible", "filterPieces query matching is case-insensitive over title/composer only (src/lib/pieces/index.ts:82-98); other fields are not searchable", "Persistence relies on IndexedDB via getDB; data is client-local"]
+    data_classes: ["Piece records (title, composer, difficulty, status, instrumentId)", "Session records (used for rotation aggregation)"]
+    stakeholders: ["Musician/end user managing repertoire"]
+  tempo.sessions:
+    mission: "Store practice sessions and compute the day totals and streaks the rest of the app consumes."
+    risks: ["Streak and totals depend on accurate startedAt/endedAt values supplied by callers (src/lib/sessions/index.ts:32-52)", "Days under 60 seconds are intentionally excluded from streaks, which may surprise users with short sessions (src/lib/sessions/__tests__/sessions.test.ts:68-76, src/lib/sessions/index.ts:95-137)", "Persistence relies on IndexedDB via getDB; availability is tied to the browser storage layer (src/lib/sessions/index.ts:1-9)"]
+    data_classes: ["Session records with id, startedAt, endedAt, durationSec (src/lib/sessions/index.ts:32-52)"]
+  tempo.stats:
+    mission: "Aggregate session records into the metrics and shapes consumed by stats visualisations."
+    risks: ["Week boundary uses Monday 00:00 local to the provided `now` (src/lib/stats/index.ts:80-88); callers in differing timezones may see different week windows", "Level thresholds are hardcoded (10/20/45/120 minutes) and not configurable (src/lib/stats/index.ts:32-38)"]
+    data_classes: ["Session (durationSec, instrument, intent, timestamp fields referenced by aggregators)"]
+  tempo.sync:
+    mission: "Provide client-side export and import of the app's IndexedDB data as versioned JSON."
+    risks: ["CURRENT_DATA_VERSION is hardcoded to 1; future schema changes require explicit migration handling (src/lib/sync/index.ts:10, 40-53)", "Import in replace mode calls resetDB before writing, which destroys existing data if the subsequent transaction fails (src/lib/sync/index.ts:55-85)"]
+    data_classes: [instruments, pieces, sessions, goals]
+  tempo.platform:
+    mission: "Provide shared domain types and date/id utilities used across the application."
+    risks: ["next.config.ts is empty aside from a placeholder comment (next.config.ts:3-7), so no platform-level Next.js configuration is in place.", "newId relies on Date.now plus a 6-character base36 random suffix (src/lib/util/id.ts:5-9); uniqueness is only verified in tests across 200 calls (src/lib/util/__tests__/id.test.ts:1-19)."]
+    data_classes: ["Instrument (src/lib/types/index.ts:16-23)", "Piece (src/lib/types/index.ts:36-47)", "Session (src/lib/types/index.ts:63-76)", "Goal (src/lib/types/index.ts:95-109)", "AppData (src/lib/types/index.ts:111-118)"]

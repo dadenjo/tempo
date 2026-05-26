@@ -1,4 +1,25 @@
 /**
+ * @file-summary
+ * @capability tempo.instruments
+ * @hash sha256-4fc67f04f697b4dc176640c1965bb2d433186683f370ca9c70e20a7ffef8cd0a
+ * @generated 2026-05-26T21:17:39.640Z
+ *
+ * Provides CRUD operations for Instrument records stored in an IndexedDB 'instruments' object store accessed via getDB(). Supports a 'primary' flag where setting an instrument as primary clears the flag on all other instruments via a readwrite transaction. listInstruments sorts by primary-first then name; getPrimaryInstrument returns the primary or falls back to the first item. Also exposes a defaultEmojiFor mapping for six InstrumentFamily values.
+ *
+ * @exports CreateInstrumentInput, defaultEmojiFor, listInstruments, getInstrument, createInstrument, updateInstrument, deleteInstrument, getPrimaryInstrument
+ * @imports @/lib/persistence/db (getDB), @/lib/types (Instrument, InstrumentFamily), @/lib/util/id (newId, nowIso)
+ * @key-functions
+ *   - defaultEmojiFor(family: InstrumentFamily) -> string [27]
+ *   - listInstruments() -> Promise<Instrument[]> [31]
+ *   - getInstrument(id: string) -> Promise<Instrument | undefined> [40]
+ *   - createInstrument(input: CreateInstrumentInput) -> Promise<Instrument> [45]
+ *   - updateInstrument(id: string, patch: Partial<Omit<Instrument,'id'|'createdAt'>>) -> Promise<Instrument | undefined> [65]
+ *   - deleteInstrument(id: string) -> Promise<void> [84]
+ *   - getPrimaryInstrument() -> Promise<Instrument | undefined> [89]
+ *   - clearPrimaryFlag(exceptId: string) -> Promise<void> [94]
+ * @evidence src/lib/instruments/index.ts:6-8, src/lib/instruments/index.ts:18-25, src/lib/instruments/index.ts:31-38, src/lib/instruments/index.ts:45-63, src/lib/instruments/index.ts:65-82, src/lib/instruments/index.ts:84-87, src/lib/instruments/index.ts:89-92, src/lib/instruments/index.ts:94-104
+ */
+/**
  * @amber-capability tempo.instruments
  * Multi-instrument management — CRUD plus a notion of a "primary" instrument
  * used as the default selection on the Today screen.

@@ -1,4 +1,25 @@
 /**
+ * @file-summary
+ * @capability tempo.sessions
+ * @hash sha256-b6b04fdd8e8a5ae63a6d8112040ed370bef4fa4762ca6b7d250a5059b392ea81
+ * @generated 2026-05-26T21:18:47.632Z
+ *
+ * Manages practice session records in an IndexedDB store via getDB. Exports CRUD functions (listSessions, getSession, createSession, updateSession, deleteSession) that compute durationSec from startedAt/endedAt timestamps. Also provides aggregate helpers: totalSecondsForDay, totalMinutesForDay, and streakFromSessions which computes current and longest streaks where a practice day requires at least 60 seconds of logged time.
+ *
+ * @exports CreateSessionInput, listSessions, getSession, createSession, updateSession, deleteSession, totalSecondsForDay, totalMinutesForDay, streakFromSessions
+ * @imports @/lib/persistence/db (getDB), @/lib/types (Session, SessionIntent), @/lib/util/id (newId), @/lib/util/date (addDays, dayKey, todayKey)
+ * @key-functions
+ *   - listSessions() -> Promise<Session[]> [21]
+ *   - getSession(id: string) -> Promise<Session | undefined> [27]
+ *   - createSession(input: CreateSessionInput) -> Promise<Session> [32]
+ *   - updateSession(id: string, patch: Partial<Omit<Session,'id'>>) -> Promise<Session | undefined> [54]
+ *   - deleteSession(id: string) -> Promise<void> [71]
+ *   - totalSecondsForDay(sessions: Session[], day?: string) -> number [77]
+ *   - totalMinutesForDay(sessions: Session[], day?: string) -> number [86]
+ *   - streakFromSessions(sessions: Session[], now?: Date) -> { current: number; longest: number } [95]
+ * @evidence src/lib/sessions/index.ts:1-9, src/lib/sessions/index.ts:11-19, src/lib/sessions/index.ts:21-25, src/lib/sessions/index.ts:32-52, src/lib/sessions/index.ts:54-69, src/lib/sessions/index.ts:71-74, src/lib/sessions/index.ts:77-91, src/lib/sessions/index.ts:95-137
+ */
+/**
  * @amber-capability tempo.sessions
  * Practice session lifecycle — create, update, delete and aggregate.
  * Provides streak calculation and daily totals used by the Today screen.

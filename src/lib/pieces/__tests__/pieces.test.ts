@@ -1,3 +1,17 @@
+/**
+ * @file-summary
+ * @capability tempo.pieces
+ * @hash sha256-16d5eb51d01be12ce79b90c60638b1d667e6c0e6e629cb4f9c73570d18ee1aeb
+ * @generated 2026-05-26T21:18:14.879Z
+ *
+ * Vitest test suite for the pieces module covering CRUD operations (createPiece, updatePiece, deletePiece, listPieces), filterPieces, and pieceRotation. Tests verify default values on creation (difficulty=3, status='learning', composer=''), update/delete behavior including undefined return for missing pieces, query/status/instrument filtering with case-insensitive matching, and rotation logic that flags pieces as neglected after 14 days while excluding shelved ones. Uses a freshDB helper in beforeEach and a mkSession factory for test sessions.
+ *
+ * @exports 
+ * @imports vitest (describe, it, expect, beforeEach), @/lib/pieces (createPiece, deletePiece, filterPieces, listPieces, pieceRotation, updatePiece), @/test/dbHelper (freshDB), @/lib/types (Session)
+ * @key-functions
+ *   - mkSession(overrides: Partial<Session>) -> Session [6]
+ * @evidence src/lib/pieces/__tests__/pieces.test.ts:1-4, src/lib/pieces/__tests__/pieces.test.ts:6-17, src/lib/pieces/__tests__/pieces.test.ts:19-40, src/lib/pieces/__tests__/pieces.test.ts:42-70, src/lib/pieces/__tests__/pieces.test.ts:72-102
+ */
 import { describe, it, expect, beforeEach } from "vitest";
 import { createPiece, deletePiece, filterPieces, listPieces, pieceRotation, updatePiece } from "@/lib/pieces";
 import { freshDB } from "@/test/dbHelper";

@@ -1,4 +1,25 @@
 /**
+ * @file-summary
+ * @capability tempo.platform
+ * @hash sha256-6fc5ec0853fcc1bcdd904f512cd526ff44296c517e90a6e5cb95b5a00d0e4ce0
+ * @generated 2026-05-26T21:19:58.555Z
+ *
+ * Date and time utility module providing helpers for working with local-time-anchored ISO date strings (YYYY-MM-DD 'day keys') and duration formatting. Includes functions to convert dates to day keys, get today's key, add days, compute day differences, find Monday-based week start, generate a range of recent day keys, and format seconds as human-readable durations or clock strings. No external imports.
+ *
+ * @exports dayKey, todayKey, addDays, diffDays, startOfWeek, rangeDays, formatDuration, formatClock
+ * @imports 
+ * @key-functions
+ *   - dayKey(d: Date | string) -> string [7]
+ *   - todayKey() -> string [15]
+ *   - addDays(d: Date, n: number) -> Date [19]
+ *   - diffDays(a: Date | string, b: Date | string) -> number [25]
+ *   - startOfWeek(d: Date) -> Date [32]
+ *   - rangeDays(end: Date, count: number) -> string[] [42]
+ *   - formatDuration(seconds: number) -> string [50]
+ *   - formatClock(seconds: number) -> string [60]
+ * @evidence src/lib/util/date.ts:1-68, src/lib/util/date.ts:7-13, src/lib/util/date.ts:32-40, src/lib/util/date.ts:42-48, src/lib/util/date.ts:50-58, src/lib/util/date.ts:60-66
+ */
+/**
  * Date helpers used throughout the app.
  * All "day keys" are ISO date strings (YYYY-MM-DD) anchored to local time
  * so that "today" lines up with the user's calendar, not UTC.

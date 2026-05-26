@@ -1,4 +1,24 @@
 /**
+ * @file-summary
+ * @capability tempo.pieces
+ * @hash sha256-42dd972982cdaabd5fcf4f549e74c9e7fe2e5e7cf3932b65f8641af1f7b863f4
+ * @generated 2026-05-26T21:18:26.530Z
+ *
+ * CRUD operations for a piece repertoire stored in IndexedDB via getDB, plus a filtering helper and a rotation analysis function. listPieces, getPiece, createPiece, updatePiece, and deletePiece operate on the 'pieces' store. filterPieces filters by status, instrumentId, and a case-insensitive query over title/composer. pieceRotation aggregates session durations per piece, computes last-practiced date and days since, and flags pieces as neglected when never practiced or practiced 14+ days ago, excluding pieces with status 'shelved'.
+ *
+ * @exports CreatePieceInput, listPieces, getPiece, createPiece, updatePiece, deletePiece, PieceFilter, filterPieces, PieceRotation, pieceRotation
+ * @imports @/lib/persistence/db (getDB), @/lib/types (Piece, PieceStatus, Session), @/lib/util/id (newId, nowIso), @/lib/util/date (diffDays)
+ * @key-functions
+ *   - listPieces() -> Promise<Piece[]> [22]
+ *   - getPiece(id: string) -> Promise<Piece | undefined> [28]
+ *   - createPiece(input: CreatePieceInput) -> Promise<Piece> [33]
+ *   - updatePiece(id: string, patch: Partial<Omit<Piece,'id'|'createdAt'>>) -> Promise<Piece | undefined> [53]
+ *   - deletePiece(id: string) -> Promise<void> [71]
+ *   - filterPieces(pieces: Piece[], filter: PieceFilter) -> Piece[] [82]
+ *   - pieceRotation(pieces: Piece[], sessions: Session[], now?: Date) -> PieceRotation[] [111]
+ * @evidence src/lib/pieces/index.ts:6-9, src/lib/pieces/index.ts:22-26, src/lib/pieces/index.ts:33-51, src/lib/pieces/index.ts:53-69, src/lib/pieces/index.ts:71-74, src/lib/pieces/index.ts:82-98, src/lib/pieces/index.ts:111-138, src/lib/pieces/index.ts:117, src/lib/pieces/index.ts:135
+ */
+/**
  * @amber-capability tempo.pieces
  * Piece library — CRUD on the user's repertoire plus rotation analysis
  * (which pieces are getting attention vs. neglected).

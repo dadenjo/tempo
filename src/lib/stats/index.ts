@@ -1,4 +1,24 @@
 /**
+ * @file-summary
+ * @capability tempo.stats
+ * @hash sha256-45a4937bbe9676c0d867284a3eec2fe08ceff13216ca3e80c962501f8fd942dd
+ * @generated 2026-05-26T21:19:15.137Z
+ *
+ * Pure analytics functions over Session arrays. Provides a GitHub-style heatmap cell builder with discrete level bucketing, an hour-of-day session count histogram, instrument and intent duration splits (in minutes, sorted desc), a total minutes sum, and a Monday-based ISO week filter. All computations aggregate durationSec and round to minutes; no I/O or side effects are present.
+ *
+ * @exports HeatmapCell, heatmapCells, levelForMinutes, timeOfDayHistogram, SplitSlice, instrumentSplit, intentSplit, totalMinutes, sessionsThisWeek
+ * @imports @/lib/types (Session, SessionIntent), @/lib/util/date (dayKey, rangeDays)
+ * @key-functions
+ *   - heatmapCells(sessions: Session[], end?: Date, days?: number) -> HeatmapCell[] [16]
+ *   - levelForMinutes(m: number) -> 0|1|2|3|4 [32]
+ *   - timeOfDayHistogram(sessions: Session[]) -> number[] [41]
+ *   - instrumentSplit(sessions: Session[]) -> SplitSlice[] [56]
+ *   - intentSplit(sessions: Session[]) -> SplitSlice[] [65]
+ *   - totalMinutes(sessions: Session[]) -> number [74]
+ *   - sessionsThisWeek(sessions: Session[], now?: Date) -> Session[] [80]
+ * @evidence src/lib/stats/index.ts:6-7, src/lib/stats/index.ts:9-13, src/lib/stats/index.ts:16-30, src/lib/stats/index.ts:32-38, src/lib/stats/index.ts:41-49, src/lib/stats/index.ts:51-54, src/lib/stats/index.ts:56-63, src/lib/stats/index.ts:65-72, src/lib/stats/index.ts:74-78, src/lib/stats/index.ts:80-88
+ */
+/**
  * @amber-capability tempo.stats
  * Pure analytics over session data — heatmap cells, time-of-day buckets,
  * instrument/intent splits. Components consume these to render charts.

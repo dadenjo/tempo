@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-05-25T21:13:41.920Z",
+  "generatedAt": "2026-05-26T21:05:57.289Z",
   "summary": {
-    "fileCount": 37,
-    "pageCount": 0,
-    "componentCount": 0,
-    "libCount": 0,
+    "fileCount": 45,
+    "pageCount": 10,
+    "componentCount": 12,
+    "libCount": 21,
     "hookCount": 0,
-    "internalDependencyCount": 97,
-    "externalDependencyCount": 28,
-    "runtimeInternalDependencyCount": 83,
-    "typeOnlyInternalDependencyCount": 14,
-    "nodeCount": 37,
-    "edgeCount": 83,
+    "internalDependencyCount": 117,
+    "externalDependencyCount": 36,
+    "runtimeInternalDependencyCount": 99,
+    "typeOnlyInternalDependencyCount": 18,
+    "nodeCount": 45,
+    "edgeCount": 99,
     "mostImportedFiles": [
       {
         "path": "src/lib/state/store.ts",
@@ -23,22 +23,32 @@
       },
       {
         "path": "src/lib/util/date.ts",
-        "count": 10
+        "count": 11
+      },
+      {
+        "path": "src/lib/sessions/index.ts",
+        "count": 8
       },
       {
         "path": "src/lib/persistence/db.ts",
         "count": 8
-      },
-      {
-        "path": "src/lib/sessions/index.ts",
-        "count": 6
       }
     ],
     "clientFileCount": 20,
     "serverFileCount": 0,
     "pageFileCount": 8,
     "routeFileCount": 1,
-    "routesDiscovered": [],
+    "routesDiscovered": [
+      "/",
+      "/api/health",
+      "/goals",
+      "/instruments",
+      "/library",
+      "/library/[id]",
+      "/sessions",
+      "/settings",
+      "/stats"
+    ],
     "cyclicFileCount": 0,
     "stronglyConnectedComponentCount": 0,
     "largestCycleSize": 0,
@@ -84,7 +94,7 @@
     "sqlForeignKeyCount": 0,
     "configCodeLinkCount": 0,
     "schemaCodeLinkCount": 0,
-    "filesWithExplainability": 37,
+    "filesWithExplainability": 45,
     "filesWithTableStringMatches": 0,
     "filesWithConfigStringMatches": 0,
     "filesWithStateComplexity": 14,
@@ -137,6 +147,10 @@
         "heatScore": 47.3
       },
       {
+        "path": "src/lib/sessions/index.ts",
+        "heatScore": 44.2
+      },
+      {
         "path": "src/components/library/PieceForm.tsx",
         "heatScore": 43.8
       },
@@ -153,28 +167,24 @@
         "heatScore": 39.3
       },
       {
-        "path": "src/lib/sessions/index.ts",
-        "heatScore": 38.9
+        "path": "src/lib/pieces/index.ts",
+        "heatScore": 39.1
       },
       {
         "path": "src/app/stats/page.tsx",
         "heatScore": 38.1
       },
       {
+        "path": "src/lib/util/date.ts",
+        "heatScore": 38
+      },
+      {
         "path": "src/app/sessions/page.tsx",
         "heatScore": 36.2
       },
       {
-        "path": "src/lib/util/date.ts",
-        "heatScore": 35.3
-      },
-      {
-        "path": "src/lib/pieces/index.ts",
-        "heatScore": 33.7
-      },
-      {
         "path": "src/lib/goals/index.ts",
-        "heatScore": 30.5
+        "heatScore": 33.2
       },
       {
         "path": "src/lib/persistence/db.ts",
@@ -183,9 +193,24 @@
     ],
     "categoryHeat": [
       {
+        "category": "app",
+        "averageHeat": 28.8,
+        "fileCount": 10
+      },
+      {
+        "category": "component",
+        "averageHeat": 25.1,
+        "fileCount": 12
+      },
+      {
+        "category": "lib",
+        "averageHeat": 22.9,
+        "fileCount": 21
+      },
+      {
         "category": "unknown",
-        "averageHeat": 25.4,
-        "fileCount": 37
+        "averageHeat": 8.6,
+        "fileCount": 2
       }
     ]
   },
@@ -214,7 +239,7 @@
     {
       "id": "src_app_layout_tsx",
       "path": "src/app/layout.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 35,
       "hasJsDoc": false,
       "label": "layout.tsx"
@@ -222,7 +247,7 @@
     {
       "id": "src_app_page_tsx",
       "path": "src/app/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 109,
       "hasJsDoc": false,
       "label": "page.tsx"
@@ -246,7 +271,7 @@
     {
       "id": "src_app_goals_page_tsx",
       "path": "src/app/goals/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 97,
       "hasJsDoc": false,
       "label": "page.tsx"
@@ -254,7 +279,7 @@
     {
       "id": "src_app_instruments_page_tsx",
       "path": "src/app/instruments/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 87,
       "hasJsDoc": false,
       "label": "page.tsx"
@@ -262,7 +287,7 @@
     {
       "id": "src_app_library_page_tsx",
       "path": "src/app/library/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 131,
       "hasJsDoc": false,
       "label": "page.tsx"
@@ -270,31 +295,31 @@
     {
       "id": "src_app_sessions_page_tsx",
       "path": "src/app/sessions/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 124,
-      "hasJsDoc": false,
-      "label": "page.tsx"
-    },
-    {
-      "id": "src_app_settings_page_tsx",
-      "path": "src/app/settings/page.tsx",
-      "category": "unknown",
-      "loc": 96,
       "hasJsDoc": false,
       "label": "page.tsx"
     },
     {
       "id": "src_app_stats_page_tsx",
       "path": "src/app/stats/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 111,
+      "hasJsDoc": false,
+      "label": "page.tsx"
+    },
+    {
+      "id": "src_app_settings_page_tsx",
+      "path": "src/app/settings/page.tsx",
+      "category": "app",
+      "loc": 96,
       "hasJsDoc": false,
       "label": "page.tsx"
     },
     {
       "id": "src_components_goals_GoalForm_tsx",
       "path": "src/components/goals/GoalForm.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 116,
       "hasJsDoc": false,
       "label": "GoalForm.tsx"
@@ -302,7 +327,7 @@
     {
       "id": "src_components_instruments_InstrumentForm_tsx",
       "path": "src/components/instruments/InstrumentForm.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 95,
       "hasJsDoc": false,
       "label": "InstrumentForm.tsx"
@@ -310,7 +335,7 @@
     {
       "id": "src_components_library_PieceForm_tsx",
       "path": "src/components/library/PieceForm.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 100,
       "hasJsDoc": false,
       "label": "PieceForm.tsx"
@@ -318,7 +343,7 @@
     {
       "id": "src_components_settings_ThemeToggle_tsx",
       "path": "src/components/settings/ThemeToggle.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 43,
       "hasJsDoc": false,
       "label": "ThemeToggle.tsx"
@@ -326,7 +351,7 @@
     {
       "id": "src_components_shared_Nav_tsx",
       "path": "src/components/shared/Nav.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 54,
       "hasJsDoc": false,
       "label": "Nav.tsx"
@@ -334,7 +359,7 @@
     {
       "id": "src_components_shared_ThemeBoot_tsx",
       "path": "src/components/shared/ThemeBoot.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 15,
       "hasJsDoc": false,
       "label": "ThemeBoot.tsx"
@@ -342,7 +367,7 @@
     {
       "id": "src_components_shared_ui_tsx",
       "path": "src/components/shared/ui.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 121,
       "hasJsDoc": false,
       "label": "ui.tsx"
@@ -350,7 +375,7 @@
     {
       "id": "src_components_stats_Charts_tsx",
       "path": "src/components/stats/Charts.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 81,
       "hasJsDoc": false,
       "label": "Charts.tsx"
@@ -358,7 +383,7 @@
     {
       "id": "src_components_stats_Heatmap_tsx",
       "path": "src/components/stats/Heatmap.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 84,
       "hasJsDoc": false,
       "label": "Heatmap.tsx"
@@ -366,7 +391,7 @@
     {
       "id": "src_components_today_StreakBadge_tsx",
       "path": "src/components/today/StreakBadge.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 25,
       "hasJsDoc": false,
       "label": "StreakBadge.tsx"
@@ -374,7 +399,7 @@
     {
       "id": "src_components_today_TimerPanel_tsx",
       "path": "src/components/today/TimerPanel.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 202,
       "hasJsDoc": false,
       "label": "TimerPanel.tsx"
@@ -382,7 +407,7 @@
     {
       "id": "src_components_today_TodaySessionList_tsx",
       "path": "src/components/today/TodaySessionList.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 60,
       "hasJsDoc": false,
       "label": "TodaySessionList.tsx"
@@ -390,7 +415,7 @@
     {
       "id": "src_lib_goals_index_ts",
       "path": "src/lib/goals/index.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 142,
       "hasJsDoc": true,
       "label": "index.ts"
@@ -398,15 +423,31 @@
     {
       "id": "src_lib_instruments_index_ts",
       "path": "src/lib/instruments/index.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 105,
+      "hasJsDoc": true,
+      "label": "index.ts"
+    },
+    {
+      "id": "src_lib_sessions_index_ts",
+      "path": "src/lib/sessions/index.ts",
+      "category": "lib",
+      "loc": 138,
+      "hasJsDoc": true,
+      "label": "index.ts"
+    },
+    {
+      "id": "src_lib_pieces_index_ts",
+      "path": "src/lib/pieces/index.ts",
+      "category": "lib",
+      "loc": 140,
       "hasJsDoc": true,
       "label": "index.ts"
     },
     {
       "id": "src_lib_persistence_db_ts",
       "path": "src/lib/persistence/db.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 72,
       "hasJsDoc": true,
       "label": "db.ts"
@@ -414,63 +455,47 @@
     {
       "id": "src_lib_persistence_index_ts",
       "path": "src/lib/persistence/index.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 7,
-      "hasJsDoc": true,
-      "label": "index.ts"
-    },
-    {
-      "id": "src_lib_pieces_index_ts",
-      "path": "src/lib/pieces/index.ts",
-      "category": "unknown",
-      "loc": 140,
-      "hasJsDoc": true,
-      "label": "index.ts"
-    },
-    {
-      "id": "src_lib_seed_index_ts",
-      "path": "src/lib/seed/index.ts",
-      "category": "unknown",
-      "loc": 115,
-      "hasJsDoc": true,
-      "label": "index.ts"
-    },
-    {
-      "id": "src_lib_sessions_index_ts",
-      "path": "src/lib/sessions/index.ts",
-      "category": "unknown",
-      "loc": 138,
       "hasJsDoc": true,
       "label": "index.ts"
     },
     {
       "id": "src_lib_state_store_ts",
       "path": "src/lib/state/store.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 87,
       "hasJsDoc": true,
       "label": "store.ts"
     },
     {
-      "id": "src_lib_stats_index_ts",
-      "path": "src/lib/stats/index.ts",
-      "category": "unknown",
-      "loc": 89,
+      "id": "src_lib_seed_index_ts",
+      "path": "src/lib/seed/index.ts",
+      "category": "lib",
+      "loc": 115,
       "hasJsDoc": true,
       "label": "index.ts"
     },
     {
       "id": "src_lib_sync_index_ts",
       "path": "src/lib/sync/index.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 90,
+      "hasJsDoc": true,
+      "label": "index.ts"
+    },
+    {
+      "id": "src_lib_stats_index_ts",
+      "path": "src/lib/stats/index.ts",
+      "category": "lib",
+      "loc": 89,
       "hasJsDoc": true,
       "label": "index.ts"
     },
     {
       "id": "src_lib_types_index_ts",
       "path": "src/lib/types/index.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 119,
       "hasJsDoc": true,
       "label": "index.ts"
@@ -478,7 +503,7 @@
     {
       "id": "src_lib_util_date_ts",
       "path": "src/lib/util/date.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 68,
       "hasJsDoc": true,
       "label": "date.ts"
@@ -486,7 +511,7 @@
     {
       "id": "src_lib_util_id_ts",
       "path": "src/lib/util/id.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 18,
       "hasJsDoc": true,
       "label": "id.ts"
@@ -494,7 +519,7 @@
     {
       "id": "src_app_api_health_route_ts",
       "path": "src/app/api/health/route.ts",
-      "category": "unknown",
+      "category": "app",
       "loc": 18,
       "hasJsDoc": true,
       "label": "route.ts"
@@ -502,10 +527,74 @@
     {
       "id": "src_app_library_id_page_tsx",
       "path": "src/app/library/[id]/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 109,
       "hasJsDoc": false,
       "label": "page.tsx"
+    },
+    {
+      "id": "src_lib_goals_tests_goals_test_ts",
+      "path": "src/lib/goals/__tests__/goals.test.ts",
+      "category": "lib",
+      "loc": 102,
+      "hasJsDoc": false,
+      "label": "goals.test.ts"
+    },
+    {
+      "id": "src_lib_instruments_tests_instruments_test_ts",
+      "path": "src/lib/instruments/__tests__/instruments.test.ts",
+      "category": "lib",
+      "loc": 38,
+      "hasJsDoc": false,
+      "label": "instruments.test.ts"
+    },
+    {
+      "id": "src_lib_sessions_tests_sessions_test_ts",
+      "path": "src/lib/sessions/__tests__/sessions.test.ts",
+      "category": "lib",
+      "loc": 105,
+      "hasJsDoc": false,
+      "label": "sessions.test.ts"
+    },
+    {
+      "id": "src_lib_pieces_tests_pieces_test_ts",
+      "path": "src/lib/pieces/__tests__/pieces.test.ts",
+      "category": "lib",
+      "loc": 103,
+      "hasJsDoc": false,
+      "label": "pieces.test.ts"
+    },
+    {
+      "id": "src_lib_sync_tests_sync_test_ts",
+      "path": "src/lib/sync/__tests__/sync.test.ts",
+      "category": "lib",
+      "loc": 78,
+      "hasJsDoc": false,
+      "label": "sync.test.ts"
+    },
+    {
+      "id": "src_lib_stats_tests_stats_test_ts",
+      "path": "src/lib/stats/__tests__/stats.test.ts",
+      "category": "lib",
+      "loc": 108,
+      "hasJsDoc": false,
+      "label": "stats.test.ts"
+    },
+    {
+      "id": "src_lib_util_tests_date_test_ts",
+      "path": "src/lib/util/__tests__/date.test.ts",
+      "category": "lib",
+      "loc": 45,
+      "hasJsDoc": false,
+      "label": "date.test.ts"
+    },
+    {
+      "id": "src_lib_util_tests_id_test_ts",
+      "path": "src/lib/util/__tests__/id.test.ts",
+      "category": "lib",
+      "loc": 20,
+      "hasJsDoc": false,
+      "label": "id.test.ts"
     }
   ],
   "edges": [
@@ -655,26 +744,6 @@
       "type": "import"
     },
     {
-      "source": "src_app_settings_page_tsx",
-      "target": "src_components_shared_ui_tsx",
-      "type": "import"
-    },
-    {
-      "source": "src_app_settings_page_tsx",
-      "target": "src_components_settings_ThemeToggle_tsx",
-      "type": "import"
-    },
-    {
-      "source": "src_app_settings_page_tsx",
-      "target": "src_lib_sync_index_ts",
-      "type": "import"
-    },
-    {
-      "source": "src_app_settings_page_tsx",
-      "target": "src_lib_state_store_ts",
-      "type": "import"
-    },
-    {
       "source": "src_app_stats_page_tsx",
       "target": "src_lib_state_store_ts",
       "type": "import"
@@ -707,6 +776,26 @@
     {
       "source": "src_app_stats_page_tsx",
       "target": "src_components_shared_ui_tsx",
+      "type": "import"
+    },
+    {
+      "source": "src_app_settings_page_tsx",
+      "target": "src_components_shared_ui_tsx",
+      "type": "import"
+    },
+    {
+      "source": "src_app_settings_page_tsx",
+      "target": "src_components_settings_ThemeToggle_tsx",
+      "type": "import"
+    },
+    {
+      "source": "src_app_settings_page_tsx",
+      "target": "src_lib_sync_index_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_app_settings_page_tsx",
+      "target": "src_lib_state_store_ts",
       "type": "import"
     },
     {
@@ -840,8 +929,18 @@
       "type": "import"
     },
     {
-      "source": "src_lib_persistence_index_ts",
+      "source": "src_lib_sessions_index_ts",
       "target": "src_lib_persistence_db_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_sessions_index_ts",
+      "target": "src_lib_util_id_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_sessions_index_ts",
+      "target": "src_lib_util_date_ts",
       "type": "import"
     },
     {
@@ -857,6 +956,16 @@
     {
       "source": "src_lib_pieces_index_ts",
       "target": "src_lib_util_date_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_persistence_index_ts",
+      "target": "src_lib_persistence_db_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_state_store_ts",
+      "target": "src_lib_persistence_db_ts",
       "type": "import"
     },
     {
@@ -880,38 +989,18 @@
       "type": "import"
     },
     {
-      "source": "src_lib_sessions_index_ts",
+      "source": "src_lib_sync_index_ts",
       "target": "src_lib_persistence_db_ts",
       "type": "import"
     },
     {
-      "source": "src_lib_sessions_index_ts",
+      "source": "src_lib_sync_index_ts",
       "target": "src_lib_util_id_ts",
-      "type": "import"
-    },
-    {
-      "source": "src_lib_sessions_index_ts",
-      "target": "src_lib_util_date_ts",
-      "type": "import"
-    },
-    {
-      "source": "src_lib_state_store_ts",
-      "target": "src_lib_persistence_db_ts",
       "type": "import"
     },
     {
       "source": "src_lib_stats_index_ts",
       "target": "src_lib_util_date_ts",
-      "type": "import"
-    },
-    {
-      "source": "src_lib_sync_index_ts",
-      "target": "src_lib_persistence_db_ts",
-      "type": "import"
-    },
-    {
-      "source": "src_lib_sync_index_ts",
-      "target": "src_lib_util_id_ts",
       "type": "import"
     },
     {
@@ -923,13 +1012,93 @@
       "source": "src_app_library_id_page_tsx",
       "target": "src_lib_util_date_ts",
       "type": "import"
+    },
+    {
+      "source": "src_lib_goals_tests_goals_test_ts",
+      "target": "src_lib_goals_index_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_goals_tests_goals_test_ts",
+      "target": "src_test_dbHelper_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_instruments_tests_instruments_test_ts",
+      "target": "src_lib_instruments_index_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_instruments_tests_instruments_test_ts",
+      "target": "src_test_dbHelper_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_sessions_tests_sessions_test_ts",
+      "target": "src_lib_sessions_index_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_sessions_tests_sessions_test_ts",
+      "target": "src_test_dbHelper_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_pieces_tests_pieces_test_ts",
+      "target": "src_lib_pieces_index_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_pieces_tests_pieces_test_ts",
+      "target": "src_test_dbHelper_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_sync_tests_sync_test_ts",
+      "target": "src_lib_sync_index_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_sync_tests_sync_test_ts",
+      "target": "src_lib_instruments_index_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_sync_tests_sync_test_ts",
+      "target": "src_lib_pieces_index_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_sync_tests_sync_test_ts",
+      "target": "src_lib_sessions_index_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_sync_tests_sync_test_ts",
+      "target": "src_test_dbHelper_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_stats_tests_stats_test_ts",
+      "target": "src_lib_stats_index_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_util_tests_date_test_ts",
+      "target": "src_lib_util_date_ts",
+      "type": "import"
+    },
+    {
+      "source": "src_lib_util_tests_id_test_ts",
+      "target": "src_lib_util_id_ts",
+      "type": "import"
     }
   ],
   "files": [
     {
       "id": "src_app_layout_tsx",
       "path": "src/app/layout.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 35,
       "imports": [
         "next",
@@ -947,7 +1116,7 @@
       "docBlock": null,
       "renderEnvironment": "shared",
       "nextFileKind": "layout",
-      "routePath": null,
+      "routePath": "/",
       "hasUseClientDirective": false,
       "hasUseServerDirective": false,
       "isApiRoute": false,
@@ -1040,9 +1209,10 @@
         }
       ],
       "commitStats": {
-        "count_90d": 1,
-        "count_180d": 1,
+        "count_90d": 2,
+        "count_180d": 2,
         "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker",
           "Initial commit from Create Next App"
         ]
       }
@@ -1050,7 +1220,7 @@
     {
       "id": "src_app_page_tsx",
       "path": "src/app/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 109,
       "imports": [
         "react",
@@ -1071,7 +1241,7 @@
       "docBlock": null,
       "renderEnvironment": "client",
       "nextFileKind": "page",
-      "routePath": null,
+      "routePath": "/",
       "hasUseClientDirective": true,
       "hasUseServerDirective": false,
       "isApiRoute": false,
@@ -1121,7 +1291,24 @@
         "localStateSignals": [],
         "complexityNotes": []
       },
-      "controlInventory": null,
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 1,
+            "confidence": "certain"
+          }
+        ],
+        "formFieldCount": 0,
+        "actionCount": 1,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": false,
+        "hasDialog": false,
+        "isInferred": false
+      },
       "screenInfo": null,
       "explainability": {
         "primaryDocBlock": null,
@@ -1227,9 +1414,10 @@
         }
       ],
       "commitStats": {
-        "count_90d": 1,
-        "count_180d": 1,
+        "count_90d": 2,
+        "count_180d": 2,
         "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker",
           "Initial commit from Create Next App"
         ]
       }
@@ -1262,13 +1450,13 @@
       "topLevelJsxBlocks": [],
       "metrics": {
         "loc": 13,
-        "incomingRuntimeDeps": 0,
+        "incomingRuntimeDeps": 5,
         "outgoingRuntimeDeps": 1,
         "jsxComponentCount": 0,
         "uiPrimitiveCount": 0,
         "complexityScore": null,
         "duplicationScore": null,
-        "heatScore": 3.5
+        "heatScore": 16.9
       },
       "stateComplexity": null,
       "controlInventory": null,
@@ -1293,7 +1481,13 @@
         "src/lib/persistence/db.ts"
       ],
       "typeOnlyInternalImports": [],
-      "incomingInternalDependencies": [],
+      "incomingInternalDependencies": [
+        "src/lib/goals/__tests__/goals.test.ts",
+        "src/lib/instruments/__tests__/instruments.test.ts",
+        "src/lib/sessions/__tests__/sessions.test.ts",
+        "src/lib/pieces/__tests__/pieces.test.ts",
+        "src/lib/sync/__tests__/sync.test.ts"
+      ],
       "outgoingInternalDependencies": [
         "src/lib/persistence/db.ts"
       ],
@@ -1304,7 +1498,14 @@
           "kind": "internal",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_test_setup_ts",
@@ -1378,12 +1579,19 @@
           "kind": "external",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_app_goals_page_tsx",
       "path": "src/app/goals/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 97,
       "imports": [
         "react",
@@ -1400,7 +1608,7 @@
       "docBlock": null,
       "renderEnvironment": "client",
       "nextFileKind": "page",
-      "routePath": null,
+      "routePath": "/goals",
       "hasUseClientDirective": true,
       "hasUseServerDirective": false,
       "isApiRoute": false,
@@ -1444,7 +1652,24 @@
         "localStateSignals": [],
         "complexityNotes": []
       },
-      "controlInventory": null,
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 2,
+            "confidence": "certain"
+          }
+        ],
+        "formFieldCount": 0,
+        "actionCount": 2,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": false,
+        "hasDialog": false,
+        "isInferred": false
+      },
       "screenInfo": null,
       "explainability": {
         "primaryDocBlock": null,
@@ -1512,12 +1737,19 @@
           "kind": "internal",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_app_instruments_page_tsx",
       "path": "src/app/instruments/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 87,
       "imports": [
         "react",
@@ -1535,7 +1767,7 @@
       "docBlock": null,
       "renderEnvironment": "client",
       "nextFileKind": "page",
-      "routePath": null,
+      "routePath": "/instruments",
       "hasUseClientDirective": true,
       "hasUseServerDirective": false,
       "isApiRoute": false,
@@ -1579,7 +1811,24 @@
         "localStateSignals": [],
         "complexityNotes": []
       },
-      "controlInventory": null,
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 3,
+            "confidence": "certain"
+          }
+        ],
+        "formFieldCount": 0,
+        "actionCount": 3,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": false,
+        "hasDialog": false,
+        "isInferred": false
+      },
       "screenInfo": null,
       "explainability": {
         "primaryDocBlock": null,
@@ -1657,12 +1906,19 @@
           "kind": "internal",
           "importUsage": "type-only"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_app_library_page_tsx",
       "path": "src/app/library/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 131,
       "imports": [
         "react",
@@ -1681,7 +1937,7 @@
       "docBlock": null,
       "renderEnvironment": "client",
       "nextFileKind": "page",
-      "routePath": null,
+      "routePath": "/library",
       "hasUseClientDirective": true,
       "hasUseServerDirective": false,
       "isApiRoute": false,
@@ -1740,7 +1996,36 @@
           "9 hooks — moderate state complexity"
         ]
       },
-      "controlInventory": null,
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 3,
+            "confidence": "certain"
+          },
+          {
+            "kind": "input",
+            "semanticRole": "Input Fields",
+            "count": 2,
+            "confidence": "certain"
+          },
+          {
+            "kind": "select",
+            "semanticRole": "Select / Dropdown",
+            "count": 1,
+            "confidence": "certain"
+          }
+        ],
+        "formFieldCount": 3,
+        "actionCount": 3,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": true,
+        "hasDialog": false,
+        "isInferred": false
+      },
       "screenInfo": null,
       "explainability": {
         "primaryDocBlock": null,
@@ -1824,12 +2109,19 @@
           "kind": "external",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_app_sessions_page_tsx",
       "path": "src/app/sessions/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 124,
       "imports": [
         "react",
@@ -1847,7 +2139,7 @@
       "docBlock": null,
       "renderEnvironment": "client",
       "nextFileKind": "page",
-      "routePath": null,
+      "routePath": "/sessions",
       "hasUseClientDirective": true,
       "hasUseServerDirective": false,
       "isApiRoute": false,
@@ -1895,7 +2187,36 @@
           "8 hooks — moderate state complexity"
         ]
       },
-      "controlInventory": null,
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "input",
+            "semanticRole": "Input Fields",
+            "count": 3,
+            "confidence": "certain"
+          },
+          {
+            "kind": "select",
+            "semanticRole": "Select / Dropdown",
+            "count": 1,
+            "confidence": "certain"
+          }
+        ],
+        "formFieldCount": 4,
+        "actionCount": 1,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": true,
+        "hasDialog": false,
+        "isInferred": false
+      },
       "screenInfo": null,
       "explainability": {
         "primaryDocBlock": null,
@@ -1972,144 +2293,19 @@
           "kind": "internal",
           "importUsage": "runtime"
         }
-      ]
-    },
-    {
-      "id": "src_app_settings_page_tsx",
-      "path": "src/app/settings/page.tsx",
-      "category": "unknown",
-      "loc": 96,
-      "imports": [
-        "react",
-        "@/components/shared/ui",
-        "@/components/settings/ThemeToggle",
-        "@/lib/sync",
-        "@/lib/state/store"
       ],
-      "exports": [
-        "SettingsPage"
-      ],
-      "hasJsDoc": false,
-      "docSummary": null,
-      "docBlock": null,
-      "renderEnvironment": "client",
-      "nextFileKind": "page",
-      "routePath": null,
-      "hasUseClientDirective": true,
-      "hasUseServerDirective": false,
-      "isApiRoute": false,
-      "isCyclic": false,
-      "cycleGroupId": null,
-      "jsxComponents": [
-        "Button",
-        "ThemeToggle"
-      ],
-      "uiPrimitives": [
-        "Button",
-        "Switch"
-      ],
-      "componentUsageCount": 5,
-      "topLevelJsxBlocks": [
-        "ThemeToggle",
-        "Button"
-      ],
-      "metrics": {
-        "loc": 96,
-        "incomingRuntimeDeps": 0,
-        "outgoingRuntimeDeps": 4,
-        "jsxComponentCount": 2,
-        "uiPrimitiveCount": 2,
-        "complexityScore": null,
-        "duplicationScore": null,
-        "heatScore": 27.1
-      },
-      "stateComplexity": {
-        "hookCounts": {
-          "useState": 2,
-          "useReducer": 0,
-          "useEffect": 0,
-          "useMemo": 0,
-          "useCallback": 0,
-          "useRef": 1,
-          "total": 3
-        },
-        "localStateSignals": [],
-        "complexityNotes": []
-      },
-      "controlInventory": null,
-      "screenInfo": null,
-      "explainability": {
-        "primaryDocBlock": null,
-        "docBlocks": [],
-        "symbolSummaries": [],
-        "codeSnippets": [],
-        "matchedConfigIdsInCode": [],
-        "matchedTableNamesInCode": []
-      },
-      "coverage": null,
-      "jsdocTags": {},
-      "relatedConfigIds": [],
-      "relatedTableNames": [],
-      "internalImports": [
-        "src/components/shared/ui.tsx",
-        "src/components/settings/ThemeToggle.tsx",
-        "src/lib/sync/index.ts",
-        "src/lib/state/store.ts"
-      ],
-      "externalImports": [
-        "react"
-      ],
-      "runtimeInternalImports": [
-        "src/components/shared/ui.tsx",
-        "src/components/settings/ThemeToggle.tsx",
-        "src/lib/sync/index.ts",
-        "src/lib/state/store.ts"
-      ],
-      "typeOnlyInternalImports": [],
-      "incomingInternalDependencies": [],
-      "outgoingInternalDependencies": [
-        "src/components/shared/ui.tsx",
-        "src/components/settings/ThemeToggle.tsx",
-        "src/lib/sync/index.ts",
-        "src/lib/state/store.ts"
-      ],
-      "resolvedImportMap": [
-        {
-          "source": "react",
-          "resolvedPath": null,
-          "kind": "external",
-          "importUsage": "runtime"
-        },
-        {
-          "source": "@/components/shared/ui",
-          "resolvedPath": "src/components/shared/ui.tsx",
-          "kind": "internal",
-          "importUsage": "runtime"
-        },
-        {
-          "source": "@/components/settings/ThemeToggle",
-          "resolvedPath": "src/components/settings/ThemeToggle.tsx",
-          "kind": "internal",
-          "importUsage": "runtime"
-        },
-        {
-          "source": "@/lib/sync",
-          "resolvedPath": "src/lib/sync/index.ts",
-          "kind": "internal",
-          "importUsage": "runtime"
-        },
-        {
-          "source": "@/lib/state/store",
-          "resolvedPath": "src/lib/state/store.ts",
-          "kind": "internal",
-          "importUsage": "runtime"
-        }
-      ]
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_app_stats_page_tsx",
       "path": "src/app/stats/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 111,
       "imports": [
         "react",
@@ -2130,7 +2326,7 @@
       "docBlock": null,
       "renderEnvironment": "client",
       "nextFileKind": "page",
-      "routePath": null,
+      "routePath": "/stats",
       "hasUseClientDirective": true,
       "hasUseServerDirective": false,
       "isApiRoute": false,
@@ -2282,12 +2478,188 @@
           "kind": "external",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
+    },
+    {
+      "id": "src_app_settings_page_tsx",
+      "path": "src/app/settings/page.tsx",
+      "category": "app",
+      "loc": 96,
+      "imports": [
+        "react",
+        "@/components/shared/ui",
+        "@/components/settings/ThemeToggle",
+        "@/lib/sync",
+        "@/lib/state/store"
+      ],
+      "exports": [
+        "SettingsPage"
+      ],
+      "hasJsDoc": false,
+      "docSummary": null,
+      "docBlock": null,
+      "renderEnvironment": "client",
+      "nextFileKind": "page",
+      "routePath": "/settings",
+      "hasUseClientDirective": true,
+      "hasUseServerDirective": false,
+      "isApiRoute": false,
+      "isCyclic": false,
+      "cycleGroupId": null,
+      "jsxComponents": [
+        "Button",
+        "ThemeToggle"
+      ],
+      "uiPrimitives": [
+        "Button",
+        "Switch"
+      ],
+      "componentUsageCount": 5,
+      "topLevelJsxBlocks": [
+        "ThemeToggle",
+        "Button"
+      ],
+      "metrics": {
+        "loc": 96,
+        "incomingRuntimeDeps": 0,
+        "outgoingRuntimeDeps": 4,
+        "jsxComponentCount": 2,
+        "uiPrimitiveCount": 2,
+        "complexityScore": null,
+        "duplicationScore": null,
+        "heatScore": 27.1
+      },
+      "stateComplexity": {
+        "hookCounts": {
+          "useState": 2,
+          "useReducer": 0,
+          "useEffect": 0,
+          "useMemo": 0,
+          "useCallback": 0,
+          "useRef": 1,
+          "total": 3
+        },
+        "localStateSignals": [],
+        "complexityNotes": []
+      },
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "toggle",
+            "semanticRole": "Toggles / Switches",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "button",
+            "semanticRole": "Export / Download",
+            "count": 1,
+            "confidence": "inferred",
+            "hint": "from event handler name"
+          }
+        ],
+        "formFieldCount": 0,
+        "actionCount": 1,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": false,
+        "hasDialog": false,
+        "isInferred": false
+      },
+      "screenInfo": null,
+      "explainability": {
+        "primaryDocBlock": null,
+        "docBlocks": [],
+        "symbolSummaries": [],
+        "codeSnippets": [],
+        "matchedConfigIdsInCode": [],
+        "matchedTableNamesInCode": []
+      },
+      "coverage": null,
+      "jsdocTags": {},
+      "relatedConfigIds": [],
+      "relatedTableNames": [],
+      "internalImports": [
+        "src/components/shared/ui.tsx",
+        "src/components/settings/ThemeToggle.tsx",
+        "src/lib/sync/index.ts",
+        "src/lib/state/store.ts"
+      ],
+      "externalImports": [
+        "react"
+      ],
+      "runtimeInternalImports": [
+        "src/components/shared/ui.tsx",
+        "src/components/settings/ThemeToggle.tsx",
+        "src/lib/sync/index.ts",
+        "src/lib/state/store.ts"
+      ],
+      "typeOnlyInternalImports": [],
+      "incomingInternalDependencies": [],
+      "outgoingInternalDependencies": [
+        "src/components/shared/ui.tsx",
+        "src/components/settings/ThemeToggle.tsx",
+        "src/lib/sync/index.ts",
+        "src/lib/state/store.ts"
+      ],
+      "resolvedImportMap": [
+        {
+          "source": "react",
+          "resolvedPath": null,
+          "kind": "external",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/components/shared/ui",
+          "resolvedPath": "src/components/shared/ui.tsx",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/components/settings/ThemeToggle",
+          "resolvedPath": "src/components/settings/ThemeToggle.tsx",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/sync",
+          "resolvedPath": "src/lib/sync/index.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/state/store",
+          "resolvedPath": "src/lib/state/store.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        }
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_components_goals_GoalForm_tsx",
       "path": "src/components/goals/GoalForm.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 116,
       "imports": [
         "react",
@@ -2356,7 +2728,42 @@
           "9 hooks — moderate state complexity"
         ]
       },
-      "controlInventory": null,
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "input",
+            "semanticRole": "Input Fields",
+            "count": 5,
+            "confidence": "certain"
+          },
+          {
+            "kind": "select",
+            "semanticRole": "Select / Dropdown",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "dialog",
+            "semanticRole": "Dialog / Modal",
+            "count": 1,
+            "confidence": "certain"
+          }
+        ],
+        "formFieldCount": 6,
+        "actionCount": 1,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": true,
+        "hasDialog": true,
+        "isInferred": false
+      },
       "screenInfo": null,
       "explainability": {
         "primaryDocBlock": null,
@@ -2427,12 +2834,19 @@
           "kind": "internal",
           "importUsage": "type-only"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_components_instruments_InstrumentForm_tsx",
       "path": "src/components/instruments/InstrumentForm.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 95,
       "imports": [
         "react",
@@ -2501,7 +2915,48 @@
           "7 hooks — moderate state complexity"
         ]
       },
-      "controlInventory": null,
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "input",
+            "semanticRole": "Input Fields",
+            "count": 4,
+            "confidence": "certain"
+          },
+          {
+            "kind": "select",
+            "semanticRole": "Select / Dropdown",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "checkbox",
+            "semanticRole": "Checkboxes",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "dialog",
+            "semanticRole": "Dialog / Modal",
+            "count": 1,
+            "confidence": "certain"
+          }
+        ],
+        "formFieldCount": 5,
+        "actionCount": 1,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": true,
+        "hasDialog": true,
+        "isInferred": false
+      },
       "screenInfo": null,
       "explainability": {
         "primaryDocBlock": null,
@@ -2571,12 +3026,19 @@
           "kind": "internal",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_components_library_PieceForm_tsx",
       "path": "src/components/library/PieceForm.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 100,
       "imports": [
         "react",
@@ -2648,7 +3110,42 @@
           "10 hooks — high state complexity"
         ]
       },
-      "controlInventory": null,
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "input",
+            "semanticRole": "Input Fields",
+            "count": 6,
+            "confidence": "certain"
+          },
+          {
+            "kind": "select",
+            "semanticRole": "Select / Dropdown",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "dialog",
+            "semanticRole": "Dialog / Modal",
+            "count": 1,
+            "confidence": "certain"
+          }
+        ],
+        "formFieldCount": 7,
+        "actionCount": 1,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": true,
+        "hasDialog": true,
+        "isInferred": false
+      },
       "screenInfo": null,
       "explainability": {
         "primaryDocBlock": null,
@@ -2718,12 +3215,19 @@
           "kind": "internal",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_components_settings_ThemeToggle_tsx",
       "path": "src/components/settings/ThemeToggle.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 43,
       "imports": [
         "react",
@@ -2776,7 +3280,24 @@
         "localStateSignals": [],
         "complexityNotes": []
       },
-      "controlInventory": null,
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 1,
+            "confidence": "certain"
+          }
+        ],
+        "formFieldCount": 0,
+        "actionCount": 1,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": false,
+        "hasDialog": false,
+        "isInferred": false
+      },
       "screenInfo": null,
       "explainability": {
         "primaryDocBlock": null,
@@ -2819,12 +3340,19 @@
           "kind": "internal",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_components_shared_Nav_tsx",
       "path": "src/components/shared/Nav.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 54,
       "imports": [
         "next/link",
@@ -2901,12 +3429,19 @@
           "kind": "external",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_components_shared_ThemeBoot_tsx",
       "path": "src/components/shared/ThemeBoot.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 15,
       "imports": [],
       "exports": [
@@ -2960,12 +3495,19 @@
         "src/app/layout.tsx"
       ],
       "outgoingInternalDependencies": [],
-      "resolvedImportMap": []
+      "resolvedImportMap": [],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_components_shared_ui_tsx",
       "path": "src/components/shared/ui.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 121,
       "imports": [
         "react"
@@ -3008,7 +3550,42 @@
         "heatScore": 47.3
       },
       "stateComplexity": null,
-      "controlInventory": null,
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 2,
+            "confidence": "certain"
+          },
+          {
+            "kind": "input",
+            "semanticRole": "Input Fields",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "textarea",
+            "semanticRole": "Text Areas",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "select",
+            "semanticRole": "Select / Dropdown",
+            "count": 1,
+            "confidence": "certain"
+          }
+        ],
+        "formFieldCount": 3,
+        "actionCount": 2,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": true,
+        "hasDialog": false,
+        "isInferred": false
+      },
       "screenInfo": null,
       "explainability": {
         "primaryDocBlock": null,
@@ -3034,8 +3611,8 @@
         "src/app/instruments/page.tsx",
         "src/app/library/page.tsx",
         "src/app/sessions/page.tsx",
-        "src/app/settings/page.tsx",
         "src/app/stats/page.tsx",
+        "src/app/settings/page.tsx",
         "src/components/goals/GoalForm.tsx",
         "src/components/instruments/InstrumentForm.tsx",
         "src/components/library/PieceForm.tsx",
@@ -3050,12 +3627,19 @@
           "kind": "external",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_components_stats_Charts_tsx",
       "path": "src/components/stats/Charts.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 81,
       "imports": [
         "@/lib/stats"
@@ -3125,12 +3709,19 @@
           "kind": "internal",
           "importUsage": "type-only"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_components_stats_Heatmap_tsx",
       "path": "src/components/stats/Heatmap.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 84,
       "imports": [
         "react",
@@ -3220,12 +3811,19 @@
           "kind": "internal",
           "importUsage": "type-only"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_components_today_StreakBadge_tsx",
       "path": "src/components/today/StreakBadge.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 25,
       "imports": [],
       "exports": [
@@ -3279,12 +3877,19 @@
         "src/app/page.tsx"
       ],
       "outgoingInternalDependencies": [],
-      "resolvedImportMap": []
+      "resolvedImportMap": [],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_components_today_TimerPanel_tsx",
       "path": "src/components/today/TimerPanel.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 202,
       "imports": [
         "react",
@@ -3354,7 +3959,36 @@
           "13 hooks — high state complexity"
         ]
       },
-      "controlInventory": null,
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 1,
+            "confidence": "certain"
+          },
+          {
+            "kind": "input",
+            "semanticRole": "Input Fields",
+            "count": 2,
+            "confidence": "certain"
+          },
+          {
+            "kind": "select",
+            "semanticRole": "Select / Dropdown",
+            "count": 1,
+            "confidence": "certain"
+          }
+        ],
+        "formFieldCount": 3,
+        "actionCount": 1,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": true,
+        "hasDialog": false,
+        "isInferred": false
+      },
       "screenInfo": null,
       "explainability": {
         "primaryDocBlock": null,
@@ -3433,12 +4067,19 @@
           "kind": "internal",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_components_today_TodaySessionList_tsx",
       "path": "src/components/today/TodaySessionList.tsx",
-      "category": "unknown",
+      "category": "component",
       "loc": 60,
       "imports": [
         "@/lib/types",
@@ -3475,7 +4116,24 @@
         "heatScore": 15.7
       },
       "stateComplexity": null,
-      "controlInventory": null,
+      "controlInventory": {
+        "controls": [
+          {
+            "kind": "button",
+            "semanticRole": "Action Buttons",
+            "count": 1,
+            "confidence": "certain"
+          }
+        ],
+        "formFieldCount": 0,
+        "actionCount": 1,
+        "hasSearch": false,
+        "hasTabs": false,
+        "hasTable": false,
+        "hasForm": false,
+        "hasDialog": false,
+        "isInferred": false
+      },
       "screenInfo": null,
       "explainability": {
         "primaryDocBlock": null,
@@ -3538,12 +4196,19 @@
           "kind": "internal",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_lib_goals_index_ts",
       "path": "src/lib/goals/index.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 142,
       "imports": [
         "@/lib/persistence/db",
@@ -3578,13 +4243,13 @@
       "topLevelJsxBlocks": [],
       "metrics": {
         "loc": 142,
-        "incomingRuntimeDeps": 2,
+        "incomingRuntimeDeps": 3,
         "outgoingRuntimeDeps": 4,
         "jsxComponentCount": 0,
         "uiPrimitiveCount": 0,
         "complexityScore": null,
         "duplicationScore": null,
-        "heatScore": 30.5
+        "heatScore": 33.2
       },
       "stateComplexity": null,
       "controlInventory": null,
@@ -3597,7 +4262,12 @@
         "matchedConfigIdsInCode": [],
         "matchedTableNamesInCode": []
       },
-      "coverage": null,
+      "coverage": {
+        "statements": 90,
+        "branches": 55.55,
+        "functions": 75,
+        "lines": 93.61
+      },
       "jsdocTags": {
         "amber": [
           "-capability tempo.goals"
@@ -3624,7 +4294,8 @@
       ],
       "incomingInternalDependencies": [
         "src/app/goals/page.tsx",
-        "src/components/goals/GoalForm.tsx"
+        "src/components/goals/GoalForm.tsx",
+        "src/lib/goals/__tests__/goals.test.ts"
       ],
       "outgoingInternalDependencies": [
         "src/lib/persistence/db.ts",
@@ -3664,12 +4335,19 @@
           "kind": "internal",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_lib_instruments_index_ts",
       "path": "src/lib/instruments/index.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 105,
       "imports": [
         "@/lib/persistence/db",
@@ -3703,13 +4381,13 @@
       "topLevelJsxBlocks": [],
       "metrics": {
         "loc": 105,
-        "incomingRuntimeDeps": 3,
+        "incomingRuntimeDeps": 5,
         "outgoingRuntimeDeps": 2,
         "jsxComponentCount": 0,
         "uiPrimitiveCount": 0,
         "complexityScore": null,
         "duplicationScore": null,
-        "heatScore": 24.8
+        "heatScore": 30.2
       },
       "stateComplexity": null,
       "controlInventory": null,
@@ -3722,7 +4400,12 @@
         "matchedConfigIdsInCode": [],
         "matchedTableNamesInCode": []
       },
-      "coverage": null,
+      "coverage": {
+        "statements": 92.1,
+        "branches": 80,
+        "functions": 100,
+        "lines": 96.96
+      },
       "jsdocTags": {
         "amber": [
           "-capability tempo.instruments"
@@ -3746,7 +4429,9 @@
       "incomingInternalDependencies": [
         "src/app/instruments/page.tsx",
         "src/components/instruments/InstrumentForm.tsx",
-        "src/lib/seed/index.ts"
+        "src/lib/seed/index.ts",
+        "src/lib/instruments/__tests__/instruments.test.ts",
+        "src/lib/sync/__tests__/sync.test.ts"
       ],
       "outgoingInternalDependencies": [
         "src/lib/persistence/db.ts",
@@ -3772,12 +4457,290 @@
           "kind": "internal",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
+    },
+    {
+      "id": "src_lib_sessions_index_ts",
+      "path": "src/lib/sessions/index.ts",
+      "category": "lib",
+      "loc": 138,
+      "imports": [
+        "@/lib/persistence/db",
+        "@/lib/types",
+        "@/lib/util/id",
+        "@/lib/util/date"
+      ],
+      "exports": [
+        "CreateSessionInput",
+        "listSessions",
+        "getSession",
+        "createSession",
+        "updateSession",
+        "deleteSession",
+        "totalSecondsForDay",
+        "totalMinutesForDay",
+        "streakFromSessions"
+      ],
+      "hasJsDoc": true,
+      "docSummary": "Practice session lifecycle — create, update, delete and aggregate.",
+      "docBlock": "@amber-capability tempo.sessions\nPractice session lifecycle — create, update, delete and aggregate.\nProvides streak calculation and daily totals used by the Today screen.",
+      "renderEnvironment": "shared",
+      "nextFileKind": "default",
+      "routePath": null,
+      "hasUseClientDirective": false,
+      "hasUseServerDirective": false,
+      "isApiRoute": false,
+      "isCyclic": false,
+      "cycleGroupId": null,
+      "jsxComponents": [],
+      "uiPrimitives": [],
+      "componentUsageCount": 0,
+      "topLevelJsxBlocks": [],
+      "metrics": {
+        "loc": 138,
+        "incomingRuntimeDeps": 8,
+        "outgoingRuntimeDeps": 3,
+        "jsxComponentCount": 0,
+        "uiPrimitiveCount": 0,
+        "complexityScore": null,
+        "duplicationScore": null,
+        "heatScore": 44.2
+      },
+      "stateComplexity": null,
+      "controlInventory": null,
+      "screenInfo": null,
+      "explainability": {
+        "primaryDocBlock": "@amber-capability tempo.sessions\nPractice session lifecycle — create, update, delete and aggregate.\nProvides streak calculation and daily totals used by the Today screen.",
+        "docBlocks": [],
+        "symbolSummaries": [],
+        "codeSnippets": [],
+        "matchedConfigIdsInCode": [],
+        "matchedTableNamesInCode": []
+      },
+      "coverage": {
+        "statements": 96.49,
+        "branches": 84.84,
+        "functions": 91.66,
+        "lines": 100
+      },
+      "jsdocTags": {
+        "amber": [
+          "-capability tempo.sessions"
+        ]
+      },
+      "relatedConfigIds": [],
+      "relatedTableNames": [],
+      "internalImports": [
+        "src/lib/persistence/db.ts",
+        "src/lib/types/index.ts",
+        "src/lib/util/id.ts",
+        "src/lib/util/date.ts"
+      ],
+      "externalImports": [],
+      "runtimeInternalImports": [
+        "src/lib/persistence/db.ts",
+        "src/lib/util/id.ts",
+        "src/lib/util/date.ts"
+      ],
+      "typeOnlyInternalImports": [
+        "src/lib/types/index.ts"
+      ],
+      "incomingInternalDependencies": [
+        "src/app/page.tsx",
+        "src/app/sessions/page.tsx",
+        "src/app/stats/page.tsx",
+        "src/components/today/TimerPanel.tsx",
+        "src/components/today/TodaySessionList.tsx",
+        "src/lib/seed/index.ts",
+        "src/lib/sessions/__tests__/sessions.test.ts",
+        "src/lib/sync/__tests__/sync.test.ts"
+      ],
+      "outgoingInternalDependencies": [
+        "src/lib/persistence/db.ts",
+        "src/lib/types/index.ts",
+        "src/lib/util/id.ts",
+        "src/lib/util/date.ts"
+      ],
+      "resolvedImportMap": [
+        {
+          "source": "@/lib/persistence/db",
+          "resolvedPath": "src/lib/persistence/db.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/types",
+          "resolvedPath": "src/lib/types/index.ts",
+          "kind": "internal",
+          "importUsage": "type-only"
+        },
+        {
+          "source": "@/lib/util/id",
+          "resolvedPath": "src/lib/util/id.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/util/date",
+          "resolvedPath": "src/lib/util/date.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        }
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
+    },
+    {
+      "id": "src_lib_pieces_index_ts",
+      "path": "src/lib/pieces/index.ts",
+      "category": "lib",
+      "loc": 140,
+      "imports": [
+        "@/lib/persistence/db",
+        "@/lib/types",
+        "@/lib/util/id",
+        "@/lib/util/date"
+      ],
+      "exports": [
+        "CreatePieceInput",
+        "listPieces",
+        "getPiece",
+        "createPiece",
+        "updatePiece",
+        "deletePiece",
+        "PieceFilter",
+        "filterPieces",
+        "PieceRotation",
+        "pieceRotation"
+      ],
+      "hasJsDoc": true,
+      "docSummary": "Piece library — CRUD on the user's repertoire plus rotation analysis",
+      "docBlock": "@amber-capability tempo.pieces\nPiece library — CRUD on the user's repertoire plus rotation analysis\n(which pieces are getting attention vs. neglected).",
+      "renderEnvironment": "shared",
+      "nextFileKind": "default",
+      "routePath": null,
+      "hasUseClientDirective": false,
+      "hasUseServerDirective": false,
+      "isApiRoute": false,
+      "isCyclic": false,
+      "cycleGroupId": null,
+      "jsxComponents": [],
+      "uiPrimitives": [],
+      "componentUsageCount": 0,
+      "topLevelJsxBlocks": [],
+      "metrics": {
+        "loc": 140,
+        "incomingRuntimeDeps": 6,
+        "outgoingRuntimeDeps": 3,
+        "jsxComponentCount": 0,
+        "uiPrimitiveCount": 0,
+        "complexityScore": null,
+        "duplicationScore": null,
+        "heatScore": 39.1
+      },
+      "stateComplexity": null,
+      "controlInventory": null,
+      "screenInfo": null,
+      "explainability": {
+        "primaryDocBlock": "@amber-capability tempo.pieces\nPiece library — CRUD on the user's repertoire plus rotation analysis\n(which pieces are getting attention vs. neglected).",
+        "docBlocks": [],
+        "symbolSummaries": [],
+        "codeSnippets": [],
+        "matchedConfigIdsInCode": [],
+        "matchedTableNamesInCode": []
+      },
+      "coverage": {
+        "statements": 92.68,
+        "branches": 92.5,
+        "functions": 86.66,
+        "lines": 94.73
+      },
+      "jsdocTags": {
+        "amber": [
+          "-capability tempo.pieces"
+        ]
+      },
+      "relatedConfigIds": [],
+      "relatedTableNames": [],
+      "internalImports": [
+        "src/lib/persistence/db.ts",
+        "src/lib/types/index.ts",
+        "src/lib/util/id.ts",
+        "src/lib/util/date.ts"
+      ],
+      "externalImports": [],
+      "runtimeInternalImports": [
+        "src/lib/persistence/db.ts",
+        "src/lib/util/id.ts",
+        "src/lib/util/date.ts"
+      ],
+      "typeOnlyInternalImports": [
+        "src/lib/types/index.ts"
+      ],
+      "incomingInternalDependencies": [
+        "src/app/library/page.tsx",
+        "src/app/stats/page.tsx",
+        "src/components/library/PieceForm.tsx",
+        "src/lib/seed/index.ts",
+        "src/lib/pieces/__tests__/pieces.test.ts",
+        "src/lib/sync/__tests__/sync.test.ts"
+      ],
+      "outgoingInternalDependencies": [
+        "src/lib/persistence/db.ts",
+        "src/lib/types/index.ts",
+        "src/lib/util/id.ts",
+        "src/lib/util/date.ts"
+      ],
+      "resolvedImportMap": [
+        {
+          "source": "@/lib/persistence/db",
+          "resolvedPath": "src/lib/persistence/db.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/types",
+          "resolvedPath": "src/lib/types/index.ts",
+          "kind": "internal",
+          "importUsage": "type-only"
+        },
+        {
+          "source": "@/lib/util/id",
+          "resolvedPath": "src/lib/util/id.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/util/date",
+          "resolvedPath": "src/lib/util/date.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        }
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_lib_persistence_db_ts",
       "path": "src/lib/persistence/db.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 72,
       "imports": [
         "idb",
@@ -3825,7 +4788,12 @@
         "matchedConfigIdsInCode": [],
         "matchedTableNamesInCode": []
       },
-      "coverage": null,
+      "coverage": {
+        "statements": 96,
+        "branches": 75,
+        "functions": 100,
+        "lines": 96
+      },
       "jsdocTags": {},
       "relatedConfigIds": [],
       "relatedTableNames": [],
@@ -3843,9 +4811,9 @@
         "src/test/dbHelper.ts",
         "src/lib/goals/index.ts",
         "src/lib/instruments/index.ts",
-        "src/lib/persistence/index.ts",
-        "src/lib/pieces/index.ts",
         "src/lib/sessions/index.ts",
+        "src/lib/pieces/index.ts",
+        "src/lib/persistence/index.ts",
         "src/lib/state/store.ts",
         "src/lib/sync/index.ts"
       ],
@@ -3865,12 +4833,19 @@
           "kind": "internal",
           "importUsage": "type-only"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_lib_persistence_index_ts",
       "path": "src/lib/persistence/index.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 7,
       "imports": [
         "./db"
@@ -3915,7 +4890,12 @@
         "matchedConfigIdsInCode": [],
         "matchedTableNamesInCode": []
       },
-      "coverage": null,
+      "coverage": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      },
       "jsdocTags": {
         "amber": [
           "-capability tempo.persistence"
@@ -3942,34 +4922,34 @@
           "kind": "internal",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
-      "id": "src_lib_pieces_index_ts",
-      "path": "src/lib/pieces/index.ts",
-      "category": "unknown",
-      "loc": 140,
+      "id": "src_lib_state_store_ts",
+      "path": "src/lib/state/store.ts",
+      "category": "lib",
+      "loc": 87,
       "imports": [
+        "react",
         "@/lib/persistence/db",
-        "@/lib/types",
-        "@/lib/util/id",
-        "@/lib/util/date"
+        "@/lib/types"
       ],
       "exports": [
-        "CreatePieceInput",
-        "listPieces",
-        "getPiece",
-        "createPiece",
-        "updatePiece",
-        "deletePiece",
-        "PieceFilter",
-        "filterPieces",
-        "PieceRotation",
-        "pieceRotation"
+        "StoreState",
+        "reload",
+        "useStore",
+        "refresh"
       ],
       "hasJsDoc": true,
-      "docSummary": "Piece library — CRUD on the user's repertoire plus rotation analysis",
-      "docBlock": "@amber-capability tempo.pieces\nPiece library — CRUD on the user's repertoire plus rotation analysis\n(which pieces are getting attention vs. neglected).",
+      "docSummary": "Light client-side store. Loads all data from IndexedDB into memory and",
+      "docBlock": "Light client-side store. Loads all data from IndexedDB into memory and\npub/subs to react components via a tiny listener pattern. The dataset is\nsmall (single-user, local) so keeping it in memory is fine.",
       "renderEnvironment": "shared",
       "nextFileKind": "default",
       "routePath": null,
@@ -3983,62 +4963,74 @@
       "componentUsageCount": 0,
       "topLevelJsxBlocks": [],
       "metrics": {
-        "loc": 140,
-        "incomingRuntimeDeps": 4,
-        "outgoingRuntimeDeps": 3,
+        "loc": 87,
+        "incomingRuntimeDeps": 13,
+        "outgoingRuntimeDeps": 1,
         "jsxComponentCount": 0,
         "uiPrimitiveCount": 0,
         "complexityScore": null,
         "duplicationScore": null,
-        "heatScore": 33.7
+        "heatScore": 47.6
       },
       "stateComplexity": null,
       "controlInventory": null,
       "screenInfo": null,
       "explainability": {
-        "primaryDocBlock": "@amber-capability tempo.pieces\nPiece library — CRUD on the user's repertoire plus rotation analysis\n(which pieces are getting attention vs. neglected).",
+        "primaryDocBlock": "Light client-side store. Loads all data from IndexedDB into memory and\npub/subs to react components via a tiny listener pattern. The dataset is\nsmall (single-user, local) so keeping it in memory is fine.",
         "docBlocks": [],
         "symbolSummaries": [],
         "codeSnippets": [],
         "matchedConfigIdsInCode": [],
         "matchedTableNamesInCode": []
       },
-      "coverage": null,
-      "jsdocTags": {
-        "amber": [
-          "-capability tempo.pieces"
-        ]
+      "coverage": {
+        "statements": 0,
+        "branches": 0,
+        "functions": 0,
+        "lines": 0
       },
+      "jsdocTags": {},
       "relatedConfigIds": [],
       "relatedTableNames": [],
       "internalImports": [
         "src/lib/persistence/db.ts",
-        "src/lib/types/index.ts",
-        "src/lib/util/id.ts",
-        "src/lib/util/date.ts"
+        "src/lib/types/index.ts"
       ],
-      "externalImports": [],
+      "externalImports": [
+        "react"
+      ],
       "runtimeInternalImports": [
-        "src/lib/persistence/db.ts",
-        "src/lib/util/id.ts",
-        "src/lib/util/date.ts"
+        "src/lib/persistence/db.ts"
       ],
       "typeOnlyInternalImports": [
         "src/lib/types/index.ts"
       ],
       "incomingInternalDependencies": [
+        "src/app/page.tsx",
+        "src/app/goals/page.tsx",
+        "src/app/instruments/page.tsx",
         "src/app/library/page.tsx",
+        "src/app/sessions/page.tsx",
         "src/app/stats/page.tsx",
+        "src/app/settings/page.tsx",
+        "src/components/goals/GoalForm.tsx",
+        "src/components/instruments/InstrumentForm.tsx",
         "src/components/library/PieceForm.tsx",
-        "src/lib/seed/index.ts"
+        "src/components/today/TimerPanel.tsx",
+        "src/components/today/TodaySessionList.tsx",
+        "src/app/library/[id]/page.tsx"
       ],
       "outgoingInternalDependencies": [
         "src/lib/persistence/db.ts",
-        "src/lib/types/index.ts",
-        "src/lib/util/id.ts",
-        "src/lib/util/date.ts"
+        "src/lib/types/index.ts"
       ],
       "resolvedImportMap": [
+        {
+          "source": "react",
+          "resolvedPath": null,
+          "kind": "external",
+          "importUsage": "runtime"
+        },
         {
           "source": "@/lib/persistence/db",
           "resolvedPath": "src/lib/persistence/db.ts",
@@ -4050,25 +5042,20 @@
           "resolvedPath": "src/lib/types/index.ts",
           "kind": "internal",
           "importUsage": "type-only"
-        },
-        {
-          "source": "@/lib/util/id",
-          "resolvedPath": "src/lib/util/id.ts",
-          "kind": "internal",
-          "importUsage": "runtime"
-        },
-        {
-          "source": "@/lib/util/date",
-          "resolvedPath": "src/lib/util/date.ts",
-          "kind": "internal",
-          "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_lib_seed_index_ts",
       "path": "src/lib/seed/index.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 115,
       "imports": [
         "@/lib/instruments",
@@ -4116,7 +5103,12 @@
         "matchedConfigIdsInCode": [],
         "matchedTableNamesInCode": []
       },
-      "coverage": null,
+      "coverage": {
+        "statements": 0,
+        "branches": 0,
+        "functions": 0,
+        "lines": 0
+      },
       "jsdocTags": {},
       "relatedConfigIds": [],
       "relatedTableNames": [],
@@ -4178,33 +5170,37 @@
           "kind": "internal",
           "importUsage": "type-only"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
-      "id": "src_lib_sessions_index_ts",
-      "path": "src/lib/sessions/index.ts",
-      "category": "unknown",
-      "loc": 138,
+      "id": "src_lib_sync_index_ts",
+      "path": "src/lib/sync/index.ts",
+      "category": "lib",
+      "loc": 90,
       "imports": [
         "@/lib/persistence/db",
         "@/lib/types",
-        "@/lib/util/id",
-        "@/lib/util/date"
+        "@/lib/util/id"
       ],
       "exports": [
-        "CreateSessionInput",
-        "listSessions",
-        "getSession",
-        "createSession",
-        "updateSession",
-        "deleteSession",
-        "totalSecondsForDay",
-        "totalMinutesForDay",
-        "streakFromSessions"
+        "CURRENT_DATA_VERSION",
+        "exportData",
+        "serializeData",
+        "ImportResult",
+        "parseAppData",
+        "importData",
+        "clearAllData"
       ],
       "hasJsDoc": true,
-      "docSummary": "Practice session lifecycle — create, update, delete and aggregate.",
-      "docBlock": "@amber-capability tempo.sessions\nPractice session lifecycle — create, update, delete and aggregate.\nProvides streak calculation and daily totals used by the Today screen.",
+      "docSummary": "Data portability — JSON export, JSON import with shape validation, and",
+      "docBlock": "@amber-capability tempo.sync\nData portability — JSON export, JSON import with shape validation, and\na clear-all utility. No network calls; entirely client-side.",
       "renderEnvironment": "shared",
       "nextFileKind": "default",
       "routePath": null,
@@ -4218,30 +5214,35 @@
       "componentUsageCount": 0,
       "topLevelJsxBlocks": [],
       "metrics": {
-        "loc": 138,
-        "incomingRuntimeDeps": 6,
-        "outgoingRuntimeDeps": 3,
+        "loc": 90,
+        "incomingRuntimeDeps": 2,
+        "outgoingRuntimeDeps": 2,
         "jsxComponentCount": 0,
         "uiPrimitiveCount": 0,
         "complexityScore": null,
         "duplicationScore": null,
-        "heatScore": 38.9
+        "heatScore": 20.3
       },
       "stateComplexity": null,
       "controlInventory": null,
       "screenInfo": null,
       "explainability": {
-        "primaryDocBlock": "@amber-capability tempo.sessions\nPractice session lifecycle — create, update, delete and aggregate.\nProvides streak calculation and daily totals used by the Today screen.",
+        "primaryDocBlock": "@amber-capability tempo.sync\nData portability — JSON export, JSON import with shape validation, and\na clear-all utility. No network calls; entirely client-side.",
         "docBlocks": [],
         "symbolSummaries": [],
         "codeSnippets": [],
         "matchedConfigIdsInCode": [],
         "matchedTableNamesInCode": []
       },
-      "coverage": null,
+      "coverage": {
+        "statements": 84.21,
+        "branches": 76.19,
+        "functions": 88.88,
+        "lines": 96.66
+      },
       "jsdocTags": {
         "amber": [
-          "-capability tempo.sessions"
+          "-capability tempo.sync"
         ]
       },
       "relatedConfigIds": [],
@@ -4249,31 +5250,24 @@
       "internalImports": [
         "src/lib/persistence/db.ts",
         "src/lib/types/index.ts",
-        "src/lib/util/id.ts",
-        "src/lib/util/date.ts"
+        "src/lib/util/id.ts"
       ],
       "externalImports": [],
       "runtimeInternalImports": [
         "src/lib/persistence/db.ts",
-        "src/lib/util/id.ts",
-        "src/lib/util/date.ts"
+        "src/lib/util/id.ts"
       ],
       "typeOnlyInternalImports": [
         "src/lib/types/index.ts"
       ],
       "incomingInternalDependencies": [
-        "src/app/page.tsx",
-        "src/app/sessions/page.tsx",
-        "src/app/stats/page.tsx",
-        "src/components/today/TimerPanel.tsx",
-        "src/components/today/TodaySessionList.tsx",
-        "src/lib/seed/index.ts"
+        "src/app/settings/page.tsx",
+        "src/lib/sync/__tests__/sync.test.ts"
       ],
       "outgoingInternalDependencies": [
         "src/lib/persistence/db.ts",
         "src/lib/types/index.ts",
-        "src/lib/util/id.ts",
-        "src/lib/util/date.ts"
+        "src/lib/util/id.ts"
       ],
       "resolvedImportMap": [
         {
@@ -4293,128 +5287,20 @@
           "resolvedPath": "src/lib/util/id.ts",
           "kind": "internal",
           "importUsage": "runtime"
-        },
-        {
-          "source": "@/lib/util/date",
-          "resolvedPath": "src/lib/util/date.ts",
-          "kind": "internal",
-          "importUsage": "runtime"
         }
-      ]
-    },
-    {
-      "id": "src_lib_state_store_ts",
-      "path": "src/lib/state/store.ts",
-      "category": "unknown",
-      "loc": 87,
-      "imports": [
-        "react",
-        "@/lib/persistence/db",
-        "@/lib/types"
       ],
-      "exports": [
-        "StoreState",
-        "reload",
-        "useStore",
-        "refresh"
-      ],
-      "hasJsDoc": true,
-      "docSummary": "Light client-side store. Loads all data from IndexedDB into memory and",
-      "docBlock": "Light client-side store. Loads all data from IndexedDB into memory and\npub/subs to react components via a tiny listener pattern. The dataset is\nsmall (single-user, local) so keeping it in memory is fine.",
-      "renderEnvironment": "shared",
-      "nextFileKind": "default",
-      "routePath": null,
-      "hasUseClientDirective": false,
-      "hasUseServerDirective": false,
-      "isApiRoute": false,
-      "isCyclic": false,
-      "cycleGroupId": null,
-      "jsxComponents": [],
-      "uiPrimitives": [],
-      "componentUsageCount": 0,
-      "topLevelJsxBlocks": [],
-      "metrics": {
-        "loc": 87,
-        "incomingRuntimeDeps": 13,
-        "outgoingRuntimeDeps": 1,
-        "jsxComponentCount": 0,
-        "uiPrimitiveCount": 0,
-        "complexityScore": null,
-        "duplicationScore": null,
-        "heatScore": 47.6
-      },
-      "stateComplexity": null,
-      "controlInventory": null,
-      "screenInfo": null,
-      "explainability": {
-        "primaryDocBlock": "Light client-side store. Loads all data from IndexedDB into memory and\npub/subs to react components via a tiny listener pattern. The dataset is\nsmall (single-user, local) so keeping it in memory is fine.",
-        "docBlocks": [],
-        "symbolSummaries": [],
-        "codeSnippets": [],
-        "matchedConfigIdsInCode": [],
-        "matchedTableNamesInCode": []
-      },
-      "coverage": null,
-      "jsdocTags": {},
-      "relatedConfigIds": [],
-      "relatedTableNames": [],
-      "internalImports": [
-        "src/lib/persistence/db.ts",
-        "src/lib/types/index.ts"
-      ],
-      "externalImports": [
-        "react"
-      ],
-      "runtimeInternalImports": [
-        "src/lib/persistence/db.ts"
-      ],
-      "typeOnlyInternalImports": [
-        "src/lib/types/index.ts"
-      ],
-      "incomingInternalDependencies": [
-        "src/app/page.tsx",
-        "src/app/goals/page.tsx",
-        "src/app/instruments/page.tsx",
-        "src/app/library/page.tsx",
-        "src/app/sessions/page.tsx",
-        "src/app/settings/page.tsx",
-        "src/app/stats/page.tsx",
-        "src/components/goals/GoalForm.tsx",
-        "src/components/instruments/InstrumentForm.tsx",
-        "src/components/library/PieceForm.tsx",
-        "src/components/today/TimerPanel.tsx",
-        "src/components/today/TodaySessionList.tsx",
-        "src/app/library/[id]/page.tsx"
-      ],
-      "outgoingInternalDependencies": [
-        "src/lib/persistence/db.ts",
-        "src/lib/types/index.ts"
-      ],
-      "resolvedImportMap": [
-        {
-          "source": "react",
-          "resolvedPath": null,
-          "kind": "external",
-          "importUsage": "runtime"
-        },
-        {
-          "source": "@/lib/persistence/db",
-          "resolvedPath": "src/lib/persistence/db.ts",
-          "kind": "internal",
-          "importUsage": "runtime"
-        },
-        {
-          "source": "@/lib/types",
-          "resolvedPath": "src/lib/types/index.ts",
-          "kind": "internal",
-          "importUsage": "type-only"
-        }
-      ]
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_lib_stats_index_ts",
       "path": "src/lib/stats/index.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 89,
       "imports": [
         "@/lib/types",
@@ -4448,13 +5334,13 @@
       "topLevelJsxBlocks": [],
       "metrics": {
         "loc": 89,
-        "incomingRuntimeDeps": 2,
+        "incomingRuntimeDeps": 3,
         "outgoingRuntimeDeps": 1,
         "jsxComponentCount": 0,
         "uiPrimitiveCount": 0,
         "complexityScore": null,
         "duplicationScore": null,
-        "heatScore": 18.3
+        "heatScore": 21
       },
       "stateComplexity": null,
       "controlInventory": null,
@@ -4467,7 +5353,12 @@
         "matchedConfigIdsInCode": [],
         "matchedTableNamesInCode": []
       },
-      "coverage": null,
+      "coverage": {
+        "statements": 100,
+        "branches": 91.3,
+        "functions": 100,
+        "lines": 100
+      },
       "jsdocTags": {
         "amber": [
           "-capability tempo.stats"
@@ -4490,7 +5381,8 @@
         "src/app/stats/page.tsx",
         "src/components/stats/Charts.tsx",
         "src/components/stats/Heatmap.tsx",
-        "src/lib/goals/index.ts"
+        "src/lib/goals/index.ts",
+        "src/lib/stats/__tests__/stats.test.ts"
       ],
       "outgoingInternalDependencies": [
         "src/lib/types/index.ts",
@@ -4509,117 +5401,19 @@
           "kind": "internal",
           "importUsage": "runtime"
         }
-      ]
-    },
-    {
-      "id": "src_lib_sync_index_ts",
-      "path": "src/lib/sync/index.ts",
-      "category": "unknown",
-      "loc": 90,
-      "imports": [
-        "@/lib/persistence/db",
-        "@/lib/types",
-        "@/lib/util/id"
       ],
-      "exports": [
-        "CURRENT_DATA_VERSION",
-        "exportData",
-        "serializeData",
-        "ImportResult",
-        "parseAppData",
-        "importData",
-        "clearAllData"
-      ],
-      "hasJsDoc": true,
-      "docSummary": "Data portability — JSON export, JSON import with shape validation, and",
-      "docBlock": "@amber-capability tempo.sync\nData portability — JSON export, JSON import with shape validation, and\na clear-all utility. No network calls; entirely client-side.",
-      "renderEnvironment": "shared",
-      "nextFileKind": "default",
-      "routePath": null,
-      "hasUseClientDirective": false,
-      "hasUseServerDirective": false,
-      "isApiRoute": false,
-      "isCyclic": false,
-      "cycleGroupId": null,
-      "jsxComponents": [],
-      "uiPrimitives": [],
-      "componentUsageCount": 0,
-      "topLevelJsxBlocks": [],
-      "metrics": {
-        "loc": 90,
-        "incomingRuntimeDeps": 1,
-        "outgoingRuntimeDeps": 2,
-        "jsxComponentCount": 0,
-        "uiPrimitiveCount": 0,
-        "complexityScore": null,
-        "duplicationScore": null,
-        "heatScore": 17.6
-      },
-      "stateComplexity": null,
-      "controlInventory": null,
-      "screenInfo": null,
-      "explainability": {
-        "primaryDocBlock": "@amber-capability tempo.sync\nData portability — JSON export, JSON import with shape validation, and\na clear-all utility. No network calls; entirely client-side.",
-        "docBlocks": [],
-        "symbolSummaries": [],
-        "codeSnippets": [],
-        "matchedConfigIdsInCode": [],
-        "matchedTableNamesInCode": []
-      },
-      "coverage": null,
-      "jsdocTags": {
-        "amber": [
-          "-capability tempo.sync"
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
         ]
-      },
-      "relatedConfigIds": [],
-      "relatedTableNames": [],
-      "internalImports": [
-        "src/lib/persistence/db.ts",
-        "src/lib/types/index.ts",
-        "src/lib/util/id.ts"
-      ],
-      "externalImports": [],
-      "runtimeInternalImports": [
-        "src/lib/persistence/db.ts",
-        "src/lib/util/id.ts"
-      ],
-      "typeOnlyInternalImports": [
-        "src/lib/types/index.ts"
-      ],
-      "incomingInternalDependencies": [
-        "src/app/settings/page.tsx"
-      ],
-      "outgoingInternalDependencies": [
-        "src/lib/persistence/db.ts",
-        "src/lib/types/index.ts",
-        "src/lib/util/id.ts"
-      ],
-      "resolvedImportMap": [
-        {
-          "source": "@/lib/persistence/db",
-          "resolvedPath": "src/lib/persistence/db.ts",
-          "kind": "internal",
-          "importUsage": "runtime"
-        },
-        {
-          "source": "@/lib/types",
-          "resolvedPath": "src/lib/types/index.ts",
-          "kind": "internal",
-          "importUsage": "type-only"
-        },
-        {
-          "source": "@/lib/util/id",
-          "resolvedPath": "src/lib/util/id.ts",
-          "kind": "internal",
-          "importUsage": "runtime"
-        }
-      ]
+      }
     },
     {
       "id": "src_lib_types_index_ts",
       "path": "src/lib/types/index.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 119,
       "imports": [],
       "exports": [
@@ -4672,7 +5466,12 @@
         "matchedConfigIdsInCode": [],
         "matchedTableNamesInCode": []
       },
-      "coverage": null,
+      "coverage": {
+        "statements": 0,
+        "branches": 100,
+        "functions": 100,
+        "lines": 0
+      },
       "jsdocTags": {},
       "relatedConfigIds": [],
       "relatedTableNames": [],
@@ -4691,21 +5490,32 @@
         "src/components/today/TodaySessionList.tsx",
         "src/lib/goals/index.ts",
         "src/lib/instruments/index.ts",
-        "src/lib/persistence/db.ts",
-        "src/lib/pieces/index.ts",
-        "src/lib/seed/index.ts",
         "src/lib/sessions/index.ts",
+        "src/lib/pieces/index.ts",
+        "src/lib/persistence/db.ts",
         "src/lib/state/store.ts",
+        "src/lib/seed/index.ts",
+        "src/lib/sync/index.ts",
         "src/lib/stats/index.ts",
-        "src/lib/sync/index.ts"
+        "src/lib/goals/__tests__/goals.test.ts",
+        "src/lib/sessions/__tests__/sessions.test.ts",
+        "src/lib/pieces/__tests__/pieces.test.ts",
+        "src/lib/stats/__tests__/stats.test.ts"
       ],
       "outgoingInternalDependencies": [],
-      "resolvedImportMap": []
+      "resolvedImportMap": [],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_lib_util_date_ts",
       "path": "src/lib/util/date.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 68,
       "imports": [],
       "exports": [
@@ -4735,13 +5545,13 @@
       "topLevelJsxBlocks": [],
       "metrics": {
         "loc": 68,
-        "incomingRuntimeDeps": 10,
+        "incomingRuntimeDeps": 11,
         "outgoingRuntimeDeps": 0,
         "jsxComponentCount": 0,
         "uiPrimitiveCount": 0,
         "complexityScore": null,
         "duplicationScore": null,
-        "heatScore": 35.3
+        "heatScore": 38
       },
       "stateComplexity": null,
       "controlInventory": null,
@@ -4754,7 +5564,12 @@
         "matchedConfigIdsInCode": [],
         "matchedTableNamesInCode": []
       },
-      "coverage": null,
+      "coverage": {
+        "statements": 97.5,
+        "branches": 78.57,
+        "functions": 88.88,
+        "lines": 97.22
+      },
       "jsdocTags": {},
       "relatedConfigIds": [],
       "relatedTableNames": [],
@@ -4768,19 +5583,27 @@
         "src/components/today/TimerPanel.tsx",
         "src/components/today/TodaySessionList.tsx",
         "src/lib/goals/index.ts",
+        "src/lib/sessions/index.ts",
         "src/lib/pieces/index.ts",
         "src/lib/seed/index.ts",
-        "src/lib/sessions/index.ts",
         "src/lib/stats/index.ts",
-        "src/app/library/[id]/page.tsx"
+        "src/app/library/[id]/page.tsx",
+        "src/lib/util/__tests__/date.test.ts"
       ],
       "outgoingInternalDependencies": [],
-      "resolvedImportMap": []
+      "resolvedImportMap": [],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_lib_util_id_ts",
       "path": "src/lib/util/id.ts",
-      "category": "unknown",
+      "category": "lib",
       "loc": 18,
       "imports": [],
       "exports": [
@@ -4805,13 +5628,13 @@
       "topLevelJsxBlocks": [],
       "metrics": {
         "loc": 18,
-        "incomingRuntimeDeps": 5,
+        "incomingRuntimeDeps": 6,
         "outgoingRuntimeDeps": 0,
         "jsxComponentCount": 0,
         "uiPrimitiveCount": 0,
         "complexityScore": null,
         "duplicationScore": null,
-        "heatScore": 15.7
+        "heatScore": 18.4
       },
       "stateComplexity": null,
       "controlInventory": null,
@@ -4824,7 +5647,12 @@
         "matchedConfigIdsInCode": [],
         "matchedTableNamesInCode": []
       },
-      "coverage": null,
+      "coverage": {
+        "statements": 100,
+        "branches": 66.66,
+        "functions": 100,
+        "lines": 100
+      },
       "jsdocTags": {},
       "relatedConfigIds": [],
       "relatedTableNames": [],
@@ -4835,17 +5663,25 @@
       "incomingInternalDependencies": [
         "src/lib/goals/index.ts",
         "src/lib/instruments/index.ts",
-        "src/lib/pieces/index.ts",
         "src/lib/sessions/index.ts",
-        "src/lib/sync/index.ts"
+        "src/lib/pieces/index.ts",
+        "src/lib/sync/index.ts",
+        "src/lib/util/__tests__/id.test.ts"
       ],
       "outgoingInternalDependencies": [],
-      "resolvedImportMap": []
+      "resolvedImportMap": [],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_app_api_health_route_ts",
       "path": "src/app/api/health/route.ts",
-      "category": "unknown",
+      "category": "app",
       "loc": 18,
       "imports": [
         "next/server"
@@ -4859,7 +5695,7 @@
       "docBlock": null,
       "renderEnvironment": "shared",
       "nextFileKind": "route",
-      "routePath": null,
+      "routePath": "/api/health",
       "hasUseClientDirective": false,
       "hasUseServerDirective": false,
       "isApiRoute": false,
@@ -4909,12 +5745,19 @@
           "kind": "external",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     },
     {
       "id": "src_app_library_id_page_tsx",
       "path": "src/app/library/[id]/page.tsx",
-      "category": "unknown",
+      "category": "app",
       "loc": 109,
       "imports": [
         "react",
@@ -4930,7 +5773,7 @@
       "docBlock": null,
       "renderEnvironment": "client",
       "nextFileKind": "page",
-      "routePath": null,
+      "routePath": "/library/[id]",
       "hasUseClientDirective": true,
       "hasUseServerDirective": false,
       "isApiRoute": false,
@@ -5026,7 +5869,826 @@
           "kind": "external",
           "importUsage": "runtime"
         }
-      ]
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
+    },
+    {
+      "id": "src_lib_goals_tests_goals_test_ts",
+      "path": "src/lib/goals/__tests__/goals.test.ts",
+      "category": "lib",
+      "loc": 102,
+      "imports": [
+        "vitest",
+        "@/lib/goals",
+        "@/test/dbHelper",
+        "@/lib/types"
+      ],
+      "exports": [],
+      "hasJsDoc": false,
+      "docSummary": null,
+      "docBlock": null,
+      "renderEnvironment": "shared",
+      "nextFileKind": "default",
+      "routePath": null,
+      "hasUseClientDirective": false,
+      "hasUseServerDirective": false,
+      "isApiRoute": false,
+      "isCyclic": false,
+      "cycleGroupId": null,
+      "jsxComponents": [],
+      "uiPrimitives": [],
+      "componentUsageCount": 0,
+      "topLevelJsxBlocks": [],
+      "metrics": {
+        "loc": 102,
+        "incomingRuntimeDeps": 0,
+        "outgoingRuntimeDeps": 2,
+        "jsxComponentCount": 0,
+        "uiPrimitiveCount": 0,
+        "complexityScore": null,
+        "duplicationScore": null,
+        "heatScore": 16.4
+      },
+      "stateComplexity": null,
+      "controlInventory": null,
+      "screenInfo": null,
+      "explainability": {
+        "primaryDocBlock": null,
+        "docBlocks": [],
+        "symbolSummaries": [],
+        "codeSnippets": [],
+        "matchedConfigIdsInCode": [],
+        "matchedTableNamesInCode": []
+      },
+      "coverage": null,
+      "jsdocTags": {},
+      "relatedConfigIds": [],
+      "relatedTableNames": [],
+      "internalImports": [
+        "src/lib/goals/index.ts",
+        "src/test/dbHelper.ts",
+        "src/lib/types/index.ts"
+      ],
+      "externalImports": [
+        "vitest"
+      ],
+      "runtimeInternalImports": [
+        "src/lib/goals/index.ts",
+        "src/test/dbHelper.ts"
+      ],
+      "typeOnlyInternalImports": [
+        "src/lib/types/index.ts"
+      ],
+      "incomingInternalDependencies": [],
+      "outgoingInternalDependencies": [
+        "src/lib/goals/index.ts",
+        "src/test/dbHelper.ts",
+        "src/lib/types/index.ts"
+      ],
+      "resolvedImportMap": [
+        {
+          "source": "vitest",
+          "resolvedPath": null,
+          "kind": "external",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/goals",
+          "resolvedPath": "src/lib/goals/index.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/test/dbHelper",
+          "resolvedPath": "src/test/dbHelper.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/types",
+          "resolvedPath": "src/lib/types/index.ts",
+          "kind": "internal",
+          "importUsage": "type-only"
+        }
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
+    },
+    {
+      "id": "src_lib_instruments_tests_instruments_test_ts",
+      "path": "src/lib/instruments/__tests__/instruments.test.ts",
+      "category": "lib",
+      "loc": 38,
+      "imports": [
+        "vitest",
+        "@/lib/instruments",
+        "@/test/dbHelper"
+      ],
+      "exports": [],
+      "hasJsDoc": false,
+      "docSummary": null,
+      "docBlock": null,
+      "renderEnvironment": "shared",
+      "nextFileKind": "default",
+      "routePath": null,
+      "hasUseClientDirective": false,
+      "hasUseServerDirective": false,
+      "isApiRoute": false,
+      "isCyclic": false,
+      "cycleGroupId": null,
+      "jsxComponents": [],
+      "uiPrimitives": [],
+      "componentUsageCount": 0,
+      "topLevelJsxBlocks": [],
+      "metrics": {
+        "loc": 38,
+        "incomingRuntimeDeps": 0,
+        "outgoingRuntimeDeps": 2,
+        "jsxComponentCount": 0,
+        "uiPrimitiveCount": 0,
+        "complexityScore": null,
+        "duplicationScore": null,
+        "heatScore": 8.5
+      },
+      "stateComplexity": null,
+      "controlInventory": null,
+      "screenInfo": null,
+      "explainability": {
+        "primaryDocBlock": null,
+        "docBlocks": [],
+        "symbolSummaries": [],
+        "codeSnippets": [],
+        "matchedConfigIdsInCode": [],
+        "matchedTableNamesInCode": []
+      },
+      "coverage": null,
+      "jsdocTags": {},
+      "relatedConfigIds": [],
+      "relatedTableNames": [],
+      "internalImports": [
+        "src/lib/instruments/index.ts",
+        "src/test/dbHelper.ts"
+      ],
+      "externalImports": [
+        "vitest"
+      ],
+      "runtimeInternalImports": [
+        "src/lib/instruments/index.ts",
+        "src/test/dbHelper.ts"
+      ],
+      "typeOnlyInternalImports": [],
+      "incomingInternalDependencies": [],
+      "outgoingInternalDependencies": [
+        "src/lib/instruments/index.ts",
+        "src/test/dbHelper.ts"
+      ],
+      "resolvedImportMap": [
+        {
+          "source": "vitest",
+          "resolvedPath": null,
+          "kind": "external",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/instruments",
+          "resolvedPath": "src/lib/instruments/index.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/test/dbHelper",
+          "resolvedPath": "src/test/dbHelper.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        }
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
+    },
+    {
+      "id": "src_lib_sessions_tests_sessions_test_ts",
+      "path": "src/lib/sessions/__tests__/sessions.test.ts",
+      "category": "lib",
+      "loc": 105,
+      "imports": [
+        "vitest",
+        "@/lib/sessions",
+        "@/test/dbHelper",
+        "@/lib/types"
+      ],
+      "exports": [],
+      "hasJsDoc": false,
+      "docSummary": null,
+      "docBlock": null,
+      "renderEnvironment": "shared",
+      "nextFileKind": "default",
+      "routePath": null,
+      "hasUseClientDirective": false,
+      "hasUseServerDirective": false,
+      "isApiRoute": false,
+      "isCyclic": false,
+      "cycleGroupId": null,
+      "jsxComponents": [],
+      "uiPrimitives": [],
+      "componentUsageCount": 0,
+      "topLevelJsxBlocks": [],
+      "metrics": {
+        "loc": 105,
+        "incomingRuntimeDeps": 0,
+        "outgoingRuntimeDeps": 2,
+        "jsxComponentCount": 0,
+        "uiPrimitiveCount": 0,
+        "complexityScore": null,
+        "duplicationScore": null,
+        "heatScore": 16.7
+      },
+      "stateComplexity": null,
+      "controlInventory": null,
+      "screenInfo": null,
+      "explainability": {
+        "primaryDocBlock": null,
+        "docBlocks": [],
+        "symbolSummaries": [],
+        "codeSnippets": [],
+        "matchedConfigIdsInCode": [],
+        "matchedTableNamesInCode": []
+      },
+      "coverage": null,
+      "jsdocTags": {},
+      "relatedConfigIds": [],
+      "relatedTableNames": [],
+      "internalImports": [
+        "src/lib/sessions/index.ts",
+        "src/test/dbHelper.ts",
+        "src/lib/types/index.ts"
+      ],
+      "externalImports": [
+        "vitest"
+      ],
+      "runtimeInternalImports": [
+        "src/lib/sessions/index.ts",
+        "src/test/dbHelper.ts"
+      ],
+      "typeOnlyInternalImports": [
+        "src/lib/types/index.ts"
+      ],
+      "incomingInternalDependencies": [],
+      "outgoingInternalDependencies": [
+        "src/lib/sessions/index.ts",
+        "src/test/dbHelper.ts",
+        "src/lib/types/index.ts"
+      ],
+      "resolvedImportMap": [
+        {
+          "source": "vitest",
+          "resolvedPath": null,
+          "kind": "external",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/sessions",
+          "resolvedPath": "src/lib/sessions/index.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/test/dbHelper",
+          "resolvedPath": "src/test/dbHelper.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/types",
+          "resolvedPath": "src/lib/types/index.ts",
+          "kind": "internal",
+          "importUsage": "type-only"
+        }
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
+    },
+    {
+      "id": "src_lib_pieces_tests_pieces_test_ts",
+      "path": "src/lib/pieces/__tests__/pieces.test.ts",
+      "category": "lib",
+      "loc": 103,
+      "imports": [
+        "vitest",
+        "@/lib/pieces",
+        "@/test/dbHelper",
+        "@/lib/types"
+      ],
+      "exports": [],
+      "hasJsDoc": false,
+      "docSummary": null,
+      "docBlock": null,
+      "renderEnvironment": "shared",
+      "nextFileKind": "default",
+      "routePath": null,
+      "hasUseClientDirective": false,
+      "hasUseServerDirective": false,
+      "isApiRoute": false,
+      "isCyclic": false,
+      "cycleGroupId": null,
+      "jsxComponents": [],
+      "uiPrimitives": [],
+      "componentUsageCount": 0,
+      "topLevelJsxBlocks": [],
+      "metrics": {
+        "loc": 103,
+        "incomingRuntimeDeps": 0,
+        "outgoingRuntimeDeps": 2,
+        "jsxComponentCount": 0,
+        "uiPrimitiveCount": 0,
+        "complexityScore": null,
+        "duplicationScore": null,
+        "heatScore": 16.5
+      },
+      "stateComplexity": null,
+      "controlInventory": null,
+      "screenInfo": null,
+      "explainability": {
+        "primaryDocBlock": null,
+        "docBlocks": [],
+        "symbolSummaries": [],
+        "codeSnippets": [],
+        "matchedConfigIdsInCode": [],
+        "matchedTableNamesInCode": []
+      },
+      "coverage": null,
+      "jsdocTags": {},
+      "relatedConfigIds": [],
+      "relatedTableNames": [],
+      "internalImports": [
+        "src/lib/pieces/index.ts",
+        "src/test/dbHelper.ts",
+        "src/lib/types/index.ts"
+      ],
+      "externalImports": [
+        "vitest"
+      ],
+      "runtimeInternalImports": [
+        "src/lib/pieces/index.ts",
+        "src/test/dbHelper.ts"
+      ],
+      "typeOnlyInternalImports": [
+        "src/lib/types/index.ts"
+      ],
+      "incomingInternalDependencies": [],
+      "outgoingInternalDependencies": [
+        "src/lib/pieces/index.ts",
+        "src/test/dbHelper.ts",
+        "src/lib/types/index.ts"
+      ],
+      "resolvedImportMap": [
+        {
+          "source": "vitest",
+          "resolvedPath": null,
+          "kind": "external",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/pieces",
+          "resolvedPath": "src/lib/pieces/index.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/test/dbHelper",
+          "resolvedPath": "src/test/dbHelper.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/types",
+          "resolvedPath": "src/lib/types/index.ts",
+          "kind": "internal",
+          "importUsage": "type-only"
+        }
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
+    },
+    {
+      "id": "src_lib_sync_tests_sync_test_ts",
+      "path": "src/lib/sync/__tests__/sync.test.ts",
+      "category": "lib",
+      "loc": 78,
+      "imports": [
+        "vitest",
+        "@/lib/sync",
+        "@/lib/instruments",
+        "@/lib/pieces",
+        "@/lib/sessions",
+        "@/test/dbHelper"
+      ],
+      "exports": [],
+      "hasJsDoc": false,
+      "docSummary": null,
+      "docBlock": null,
+      "renderEnvironment": "shared",
+      "nextFileKind": "default",
+      "routePath": null,
+      "hasUseClientDirective": false,
+      "hasUseServerDirective": false,
+      "isApiRoute": false,
+      "isCyclic": false,
+      "cycleGroupId": null,
+      "jsxComponents": [],
+      "uiPrimitives": [],
+      "componentUsageCount": 0,
+      "topLevelJsxBlocks": [],
+      "metrics": {
+        "loc": 78,
+        "incomingRuntimeDeps": 0,
+        "outgoingRuntimeDeps": 5,
+        "jsxComponentCount": 0,
+        "uiPrimitiveCount": 0,
+        "complexityScore": null,
+        "duplicationScore": null,
+        "heatScore": 19
+      },
+      "stateComplexity": null,
+      "controlInventory": null,
+      "screenInfo": null,
+      "explainability": {
+        "primaryDocBlock": null,
+        "docBlocks": [],
+        "symbolSummaries": [],
+        "codeSnippets": [],
+        "matchedConfigIdsInCode": [],
+        "matchedTableNamesInCode": []
+      },
+      "coverage": null,
+      "jsdocTags": {},
+      "relatedConfigIds": [],
+      "relatedTableNames": [],
+      "internalImports": [
+        "src/lib/sync/index.ts",
+        "src/lib/instruments/index.ts",
+        "src/lib/pieces/index.ts",
+        "src/lib/sessions/index.ts",
+        "src/test/dbHelper.ts"
+      ],
+      "externalImports": [
+        "vitest"
+      ],
+      "runtimeInternalImports": [
+        "src/lib/sync/index.ts",
+        "src/lib/instruments/index.ts",
+        "src/lib/pieces/index.ts",
+        "src/lib/sessions/index.ts",
+        "src/test/dbHelper.ts"
+      ],
+      "typeOnlyInternalImports": [],
+      "incomingInternalDependencies": [],
+      "outgoingInternalDependencies": [
+        "src/lib/sync/index.ts",
+        "src/lib/instruments/index.ts",
+        "src/lib/pieces/index.ts",
+        "src/lib/sessions/index.ts",
+        "src/test/dbHelper.ts"
+      ],
+      "resolvedImportMap": [
+        {
+          "source": "vitest",
+          "resolvedPath": null,
+          "kind": "external",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/sync",
+          "resolvedPath": "src/lib/sync/index.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/instruments",
+          "resolvedPath": "src/lib/instruments/index.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/pieces",
+          "resolvedPath": "src/lib/pieces/index.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/sessions",
+          "resolvedPath": "src/lib/sessions/index.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/test/dbHelper",
+          "resolvedPath": "src/test/dbHelper.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        }
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
+    },
+    {
+      "id": "src_lib_stats_tests_stats_test_ts",
+      "path": "src/lib/stats/__tests__/stats.test.ts",
+      "category": "lib",
+      "loc": 108,
+      "imports": [
+        "vitest",
+        "@/lib/stats",
+        "@/lib/types"
+      ],
+      "exports": [],
+      "hasJsDoc": false,
+      "docSummary": null,
+      "docBlock": null,
+      "renderEnvironment": "shared",
+      "nextFileKind": "default",
+      "routePath": null,
+      "hasUseClientDirective": false,
+      "hasUseServerDirective": false,
+      "isApiRoute": false,
+      "isCyclic": false,
+      "cycleGroupId": null,
+      "jsxComponents": [],
+      "uiPrimitives": [],
+      "componentUsageCount": 0,
+      "topLevelJsxBlocks": [],
+      "metrics": {
+        "loc": 108,
+        "incomingRuntimeDeps": 0,
+        "outgoingRuntimeDeps": 1,
+        "jsxComponentCount": 0,
+        "uiPrimitiveCount": 0,
+        "complexityScore": null,
+        "duplicationScore": null,
+        "heatScore": 15.2
+      },
+      "stateComplexity": null,
+      "controlInventory": null,
+      "screenInfo": null,
+      "explainability": {
+        "primaryDocBlock": null,
+        "docBlocks": [],
+        "symbolSummaries": [],
+        "codeSnippets": [],
+        "matchedConfigIdsInCode": [],
+        "matchedTableNamesInCode": []
+      },
+      "coverage": null,
+      "jsdocTags": {},
+      "relatedConfigIds": [],
+      "relatedTableNames": [],
+      "internalImports": [
+        "src/lib/stats/index.ts",
+        "src/lib/types/index.ts"
+      ],
+      "externalImports": [
+        "vitest"
+      ],
+      "runtimeInternalImports": [
+        "src/lib/stats/index.ts"
+      ],
+      "typeOnlyInternalImports": [
+        "src/lib/types/index.ts"
+      ],
+      "incomingInternalDependencies": [],
+      "outgoingInternalDependencies": [
+        "src/lib/stats/index.ts",
+        "src/lib/types/index.ts"
+      ],
+      "resolvedImportMap": [
+        {
+          "source": "vitest",
+          "resolvedPath": null,
+          "kind": "external",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/stats",
+          "resolvedPath": "src/lib/stats/index.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "@/lib/types",
+          "resolvedPath": "src/lib/types/index.ts",
+          "kind": "internal",
+          "importUsage": "type-only"
+        }
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
+    },
+    {
+      "id": "src_lib_util_tests_date_test_ts",
+      "path": "src/lib/util/__tests__/date.test.ts",
+      "category": "lib",
+      "loc": 45,
+      "imports": [
+        "vitest",
+        "../date"
+      ],
+      "exports": [],
+      "hasJsDoc": false,
+      "docSummary": null,
+      "docBlock": null,
+      "renderEnvironment": "shared",
+      "nextFileKind": "default",
+      "routePath": null,
+      "hasUseClientDirective": false,
+      "hasUseServerDirective": false,
+      "isApiRoute": false,
+      "isCyclic": false,
+      "cycleGroupId": null,
+      "jsxComponents": [],
+      "uiPrimitives": [],
+      "componentUsageCount": 0,
+      "topLevelJsxBlocks": [],
+      "metrics": {
+        "loc": 45,
+        "incomingRuntimeDeps": 0,
+        "outgoingRuntimeDeps": 1,
+        "jsxComponentCount": 0,
+        "uiPrimitiveCount": 0,
+        "complexityScore": null,
+        "duplicationScore": null,
+        "heatScore": 7.4
+      },
+      "stateComplexity": null,
+      "controlInventory": null,
+      "screenInfo": null,
+      "explainability": {
+        "primaryDocBlock": null,
+        "docBlocks": [],
+        "symbolSummaries": [],
+        "codeSnippets": [],
+        "matchedConfigIdsInCode": [],
+        "matchedTableNamesInCode": []
+      },
+      "coverage": null,
+      "jsdocTags": {},
+      "relatedConfigIds": [],
+      "relatedTableNames": [],
+      "internalImports": [
+        "src/lib/util/date.ts"
+      ],
+      "externalImports": [
+        "vitest"
+      ],
+      "runtimeInternalImports": [
+        "src/lib/util/date.ts"
+      ],
+      "typeOnlyInternalImports": [],
+      "incomingInternalDependencies": [],
+      "outgoingInternalDependencies": [
+        "src/lib/util/date.ts"
+      ],
+      "resolvedImportMap": [
+        {
+          "source": "vitest",
+          "resolvedPath": null,
+          "kind": "external",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "../date",
+          "resolvedPath": "src/lib/util/date.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        }
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
+    },
+    {
+      "id": "src_lib_util_tests_id_test_ts",
+      "path": "src/lib/util/__tests__/id.test.ts",
+      "category": "lib",
+      "loc": 20,
+      "imports": [
+        "vitest",
+        "../id"
+      ],
+      "exports": [],
+      "hasJsDoc": false,
+      "docSummary": null,
+      "docBlock": null,
+      "renderEnvironment": "shared",
+      "nextFileKind": "default",
+      "routePath": null,
+      "hasUseClientDirective": false,
+      "hasUseServerDirective": false,
+      "isApiRoute": false,
+      "isCyclic": false,
+      "cycleGroupId": null,
+      "jsxComponents": [],
+      "uiPrimitives": [],
+      "componentUsageCount": 0,
+      "topLevelJsxBlocks": [],
+      "metrics": {
+        "loc": 20,
+        "incomingRuntimeDeps": 0,
+        "outgoingRuntimeDeps": 1,
+        "jsxComponentCount": 0,
+        "uiPrimitiveCount": 0,
+        "complexityScore": null,
+        "duplicationScore": null,
+        "heatScore": 4.4
+      },
+      "stateComplexity": null,
+      "controlInventory": null,
+      "screenInfo": null,
+      "explainability": {
+        "primaryDocBlock": null,
+        "docBlocks": [],
+        "symbolSummaries": [],
+        "codeSnippets": [],
+        "matchedConfigIdsInCode": [],
+        "matchedTableNamesInCode": []
+      },
+      "coverage": null,
+      "jsdocTags": {},
+      "relatedConfigIds": [],
+      "relatedTableNames": [],
+      "internalImports": [
+        "src/lib/util/id.ts"
+      ],
+      "externalImports": [
+        "vitest"
+      ],
+      "runtimeInternalImports": [
+        "src/lib/util/id.ts"
+      ],
+      "typeOnlyInternalImports": [],
+      "incomingInternalDependencies": [],
+      "outgoingInternalDependencies": [
+        "src/lib/util/id.ts"
+      ],
+      "resolvedImportMap": [
+        {
+          "source": "vitest",
+          "resolvedPath": null,
+          "kind": "external",
+          "importUsage": "runtime"
+        },
+        {
+          "source": "../id",
+          "resolvedPath": "src/lib/util/id.ts",
+          "kind": "internal",
+          "importUsage": "runtime"
+        }
+      ],
+      "commitStats": {
+        "count_90d": 1,
+        "count_180d": 1,
+        "subjects_180d": [
+          "feat: build out Tempo — local-first practice tracker"
+        ]
+      }
     }
   ],
   "markdownDocs": [
@@ -5047,6 +6709,91 @@
     }
   ],
   "recentCommits": [
+    {
+      "sha": "fa296ba",
+      "date": "2026-05-25T23:16:58+02:00",
+      "subject": "fix: keep vitest.config.ts out of next build tsc pass",
+      "files": [
+        "tsconfig.json",
+        "vitest.config.ts"
+      ],
+      "insertions": 2,
+      "deletions": 2
+    },
+    {
+      "sha": "bcb7008",
+      "date": "2026-05-25T23:15:36+02:00",
+      "subject": "test: enable all-files coverage reporting (97% lines on lib/)",
+      "files": [
+        "vitest.config.ts"
+      ],
+      "insertions": 6,
+      "deletions": 1
+    },
+    {
+      "sha": "a101e43",
+      "date": "2026-05-25T23:14:32+02:00",
+      "subject": "feat: build out Tempo — local-first practice tracker",
+      "files": [
+        ".prism/blueprint.json",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "LICENSE",
+        "README.md",
+        "package-lock.json",
+        "package.json",
+        "src/app/api/health/route.ts",
+        "src/app/globals.css",
+        "src/app/goals/page.tsx",
+        "src/app/instruments/page.tsx",
+        "src/app/layout.tsx",
+        "src/app/library/[id]/page.tsx",
+        "src/app/library/page.tsx",
+        "src/app/page.tsx",
+        "src/app/sessions/page.tsx",
+        "src/app/settings/page.tsx",
+        "src/app/stats/page.tsx",
+        "src/components/goals/GoalForm.tsx",
+        "src/components/instruments/InstrumentForm.tsx",
+        "src/components/library/PieceForm.tsx",
+        "src/components/settings/ThemeToggle.tsx",
+        "src/components/shared/Nav.tsx",
+        "src/components/shared/ThemeBoot.tsx",
+        "src/components/shared/ui.tsx",
+        "src/components/stats/Charts.tsx",
+        "src/components/stats/Heatmap.tsx",
+        "src/components/today/StreakBadge.tsx",
+        "src/components/today/TimerPanel.tsx",
+        "src/components/today/TodaySessionList.tsx",
+        "src/lib/goals/__tests__/goals.test.ts",
+        "src/lib/goals/index.ts",
+        "src/lib/instruments/__tests__/instruments.test.ts",
+        "src/lib/instruments/index.ts",
+        "src/lib/persistence/db.ts",
+        "src/lib/persistence/index.ts",
+        "src/lib/pieces/__tests__/pieces.test.ts",
+        "src/lib/pieces/index.ts",
+        "src/lib/seed/index.ts",
+        "src/lib/sessions/__tests__/sessions.test.ts",
+        "src/lib/sessions/index.ts",
+        "src/lib/state/store.ts",
+        "src/lib/stats/__tests__/stats.test.ts",
+        "src/lib/stats/index.ts",
+        "src/lib/sync/__tests__/sync.test.ts",
+        "src/lib/sync/index.ts",
+        "src/lib/types/index.ts",
+        "src/lib/util/__tests__/date.test.ts",
+        "src/lib/util/__tests__/id.test.ts",
+        "src/lib/util/date.ts",
+        "src/lib/util/id.ts",
+        "src/test/dbHelper.ts",
+        "src/test/setup.ts",
+        "tsconfig.json",
+        "vitest.config.ts"
+      ],
+      "insertions": 16305,
+      "deletions": 2700
+    },
     {
       "sha": "3f5ab27",
       "date": "2026-05-25T22:55:32+02:00",

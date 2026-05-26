@@ -1,3 +1,19 @@
+/**
+ * @file-summary
+ * @capability tempo.persistence
+ * @hash sha256-6fe0c54c469a8ea2ae59516391c48264a76dca2c4a06ba815206a2c01697a0b7
+ * @generated 2026-05-26T21:17:46.832Z
+ *
+ * Defines an IndexedDB wrapper using the `idb` library for a database named 'tempo' at version 1. Declares a typed schema (`TempoDBSchema`) with five object stores: instruments, pieces, sessions, goals, and meta, with indexes on pieces (by-instrument) and sessions (by-instrument, by-piece, by-startedAt). Exposes `getDB` for lazy singleton access (throws if `indexedDB` is undefined), `resetDB` to clear all stores, and `_resetDbCacheForTests` to close and discard the cached connection for test isolation.
+ *
+ * @exports TempoDBSchema, getDB, resetDB, _resetDbCacheForTests
+ * @imports idb (openDB, IDBPDatabase, DBSchema), @/lib/types (Goal, Instrument, Piece, Session)
+ * @key-functions
+ *   - getDB() -> Promise<IDBPDatabase<TempoDBSchema>> [25]
+ *   - resetDB() -> Promise<void> [49]
+ *   - _resetDbCacheForTests() -> Promise<void> [61]
+ * @evidence src/lib/persistence/db.ts:4-5, src/lib/persistence/db.ts:7-21, src/lib/persistence/db.ts:25-47, src/lib/persistence/db.ts:32-42, src/lib/persistence/db.ts:49-58, src/lib/persistence/db.ts:60-71
+ */
 import { openDB, type IDBPDatabase, type DBSchema } from "idb";
 import type { Goal, Instrument, Piece, Session } from "@/lib/types";
 

@@ -1,4 +1,22 @@
 /**
+ * @file-summary
+ * @capability tempo.sync
+ * @hash sha256-2cbcf76c0146e232af0a03506c7288f035abd3a24d48bfbd235538281b8ac475
+ * @generated 2026-05-26T21:19:33.143Z
+ *
+ * Provides client-side data portability for the app's IndexedDB store: exports all records from the instruments, pieces, sessions, and goals object stores into an AppData object with a version and timestamp, serializes it to pretty-printed JSON, and imports JSON after shape validation. Import optionally replaces existing data via resetDB, then puts records into each store in a single readwrite transaction and returns counts. Also exposes a clearAllData helper that calls resetDB. Rejects imports whose version exceeds CURRENT_DATA_VERSION (1) or whose JSON shape is invalid.
+ *
+ * @exports CURRENT_DATA_VERSION, exportData, serializeData, ImportResult, parseAppData, importData, clearAllData
+ * @imports @/lib/persistence/db (getDB, resetDB), @/lib/types (AppData, Goal, Instrument, Piece, Session), @/lib/util/id (nowIso)
+ * @key-functions
+ *   - exportData() -> Promise<AppData> [12]
+ *   - serializeData(data: AppData) -> string [30]
+ *   - parseAppData(raw: string) -> AppData | null [40]
+ *   - importData(raw: string, opts?: { replace?: boolean }) -> Promise<ImportResult> [55]
+ *   - clearAllData() -> Promise<void> [87]
+ * @evidence src/lib/sync/index.ts:10, src/lib/sync/index.ts:12-28, src/lib/sync/index.ts:30-32, src/lib/sync/index.ts:34-38, src/lib/sync/index.ts:40-53, src/lib/sync/index.ts:55-85, src/lib/sync/index.ts:61-62, src/lib/sync/index.ts:63-68, src/lib/sync/index.ts:87-89
+ */
+/**
  * @amber-capability tempo.sync
  * Data portability — JSON export, JSON import with shape validation, and
  * a clear-all utility. No network calls; entirely client-side.

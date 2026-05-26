@@ -1,4 +1,19 @@
 /**
+ * @file-summary
+ * @capability tempo.persistence
+ * @hash sha256-d1c04294c976fc9f2fba126591d900f22243f8cd459bd1becb0489e1a8e0d3e6
+ * @generated 2026-05-26T21:18:07.501Z
+ *
+ * Generates synthetic seed data for an empty-state demo by creating 2 instruments (Upright Piano, Classical Guitar), 4 pieces tied to those instruments, and ~30 days of sessions with rough alternation between instruments. Uses a deterministic pseudo-random function based on Math.sin for reproducibility, skipping ~20% of days and producing 1-3 sessions per active day. Each session randomizes instrument, piece (from pool matching instrument), intent, hour (8-20), and duration (12-47 minutes).
+ *
+ * @exports seedExampleData
+ * @imports @/lib/instruments (createInstrument), @/lib/pieces (createPiece), @/lib/sessions (createSession), @/lib/util/date (addDays), @/lib/types (SessionIntent)
+ * @key-functions
+ *   - seedExampleData() -> Promise<void> [20]
+ *   - deterministic(n: number) -> number [111]
+ * @evidence src/lib/seed/index.ts:6-10, src/lib/seed/index.ts:12-18, src/lib/seed/index.ts:20-29, src/lib/seed/index.ts:31-72, src/lib/seed/index.ts:74-79, src/lib/seed/index.ts:80-93, src/lib/seed/index.ts:94-105, src/lib/seed/index.ts:111-114
+ */
+/**
  * Synthetic seed data — used by the "Seed with example data" empty-state
  * action. Generates ~30 days of plausible sessions across 2 instruments
  * and 4 pieces so newcomers see populated stats immediately.

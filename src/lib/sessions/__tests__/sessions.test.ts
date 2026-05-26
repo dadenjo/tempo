@@ -1,3 +1,17 @@
+/**
+ * @file-summary
+ * @capability tempo.sessions
+ * @hash sha256-96fbabd455bcff13be1688044e7edcf504efe14df58b27e695143c15065f3c47
+ * @generated 2026-05-26T21:18:36.346Z
+ *
+ * Vitest test suite for the sessions module covering CRUD operations (createSession, updateSession, deleteSession, getSession, listSessions) and aggregation helpers (totalSecondsForDay, totalMinutesForDay, streakFromSessions). Tests verify that createSession computes durationSec from startedAt/endedAt, updateSession recomputes duration when times change, and per-day totals filter by local date. Streak tests assert: empty input yields {current:0,longest:0}, days with fewer than 60 seconds don't count, current streak counts back from a reference date, a streak can lead from yesterday when today is empty, and longest streak accounts for gaps. Uses freshDB() in beforeEach to reset state.
+ *
+ * @exports 
+ * @imports vitest (describe, it, expect, beforeEach), @/lib/sessions (createSession, deleteSession, getSession, listSessions, streakFromSessions, totalMinutesForDay, totalSecondsForDay, updateSession), @/test/dbHelper (freshDB), @/lib/types (Session)
+ * @key-functions
+ *   - make(overrides?: Partial<Session>) -> Session [6]
+ * @evidence src/lib/sessions/__tests__/sessions.test.ts:1-4, src/lib/sessions/__tests__/sessions.test.ts:6-17, src/lib/sessions/__tests__/sessions.test.ts:19-20, src/lib/sessions/__tests__/sessions.test.ts:22-30, src/lib/sessions/__tests__/sessions.test.ts:32-41, src/lib/sessions/__tests__/sessions.test.ts:43-53, src/lib/sessions/__tests__/sessions.test.ts:56-66, src/lib/sessions/__tests__/sessions.test.ts:68-76, src/lib/sessions/__tests__/sessions.test.ts:78-92, src/lib/sessions/__tests__/sessions.test.ts:94-103
+ */
 import { describe, it, expect, beforeEach } from "vitest";
 import { createSession, deleteSession, getSession, listSessions, streakFromSessions, totalMinutesForDay, totalSecondsForDay, updateSession } from "@/lib/sessions";
 import { freshDB } from "@/test/dbHelper";

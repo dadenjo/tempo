@@ -1,3 +1,17 @@
+/**
+ * @file-summary
+ * @capability tempo.stats
+ * @hash sha256-64b7c6bf42407230843fc30b5ceb9bcccccc6a9c633d4a1ea1802fd517113fd2
+ * @generated 2026-05-26T21:18:55.619Z
+ *
+ * Vitest unit tests for statistics helpers imported from `@/lib/stats`. Covers `levelForMinutes` bucket thresholds (0/10/20/45/120 minutes mapping to levels 0–4), `heatmapCells` cell count and per-day aggregation ending at an anchor date, `timeOfDayHistogram` producing 24 hourly buckets, `instrumentSplit` and `intentSplit` summing durations by key, `totalMinutes` summing durationSec to minutes, and `sessionsThisWeek` filtering from Monday 00:00 relative to a given `now`. A local `make` factory constructs `Session` objects with overridable fields.
+ *
+ * @exports 
+ * @imports vitest (describe, it, expect), @/lib/stats (heatmapCells, instrumentSplit, intentSplit, levelForMinutes, sessionsThisWeek, timeOfDayHistogram, totalMinutes), @/lib/types (Session)
+ * @key-functions
+ *   - make(o: Partial<Session>) -> Session [5]
+ * @evidence src/lib/stats/__tests__/stats.test.ts:1-3, src/lib/stats/__tests__/stats.test.ts:5-16, src/lib/stats/__tests__/stats.test.ts:18-26, src/lib/stats/__tests__/stats.test.ts:28-51, src/lib/stats/__tests__/stats.test.ts:53-64, src/lib/stats/__tests__/stats.test.ts:66-87, src/lib/stats/__tests__/stats.test.ts:89-107
+ */
 import { describe, it, expect } from "vitest";
 import { heatmapCells, instrumentSplit, intentSplit, levelForMinutes, sessionsThisWeek, timeOfDayHistogram, totalMinutes } from "@/lib/stats";
 import type { Session } from "@/lib/types";

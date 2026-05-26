@@ -1,3 +1,17 @@
+/**
+ * @file-summary
+ * @capability tempo.goals
+ * @hash sha256-0ffa6d891ceb6f0bc5eb4b261067b59f91312d0cb84db075ca1e06e57c447b28
+ * @generated 2026-05-26T21:17:10.561Z
+ *
+ * Vitest test suite for the goals module covering CRUD operations and evaluateGoal behavior across three goal types. CRUD test creates, updates, and deletes a weekly-minutes goal, verifying listGoals returns empty after delete. evaluateGoal tests verify: weekly-minutes goal status becomes 'done' when minutes exceeded and 'behind' when below proportion; piece-ready-by goal returns 'missed' when overdue and 'behind' when misconfigured; instrument-frequency goal returns 'done' at 100% when distinct practice days meet perWeek target. Uses freshDB helper in beforeEach and a make() factory for Session objects.
+ *
+ * @exports 
+ * @imports vitest (describe, it, expect, beforeEach), @/lib/goals (createGoal, deleteGoal, evaluateGoal, listGoals, updateGoal), @/test/dbHelper (freshDB), @/lib/types (Goal, Session)
+ * @key-functions
+ *   - make(o: Partial<Session>) -> Session [6]
+ * @evidence src/lib/goals/__tests__/goals.test.ts:1-4, src/lib/goals/__tests__/goals.test.ts:6-17, src/lib/goals/__tests__/goals.test.ts:19-30, src/lib/goals/__tests__/goals.test.ts:32-56, src/lib/goals/__tests__/goals.test.ts:58-78, src/lib/goals/__tests__/goals.test.ts:80-101
+ */
 import { describe, it, expect, beforeEach } from "vitest";
 import { createGoal, deleteGoal, evaluateGoal, listGoals, updateGoal } from "@/lib/goals";
 import { freshDB } from "@/test/dbHelper";
