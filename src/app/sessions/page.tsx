@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * @amber-capability tempo.sessions
+ */
+
 import { useMemo, useState } from "react";
 import { useStore, refresh } from "@/lib/state/store";
 import { Button, EmptyState, Field, Input, Select } from "@/components/shared/ui";

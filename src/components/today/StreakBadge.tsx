@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * @amber-capability tempo.today
+ */
+
 export function StreakBadge({ current, longest }: { current: number; longest: number }) {
   return (
     <div className="card p-5 flex items-center gap-5">

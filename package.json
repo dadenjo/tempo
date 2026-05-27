@@ -33,9 +33,9 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "fake-indexeddb": "^6.2.5",
-    "forge0x2b": "^0.6.1",
+    "forge0x2b": "^0.10.3",
     "jsdom": "^29.1.1",
-    "prism0x2a": "^0.26.0",
+    "prism0x2a": "^0.27.4",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.7"

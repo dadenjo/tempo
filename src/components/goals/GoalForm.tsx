@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * @amber-capability tempo.goals
+ */
+
 import { useState } from "react";
 import { Button, Field, Input, Modal, Select } from "@/components/shared/ui";
 import { createGoal } from "@/lib/goals";

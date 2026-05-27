@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * @amber-capability tempo.stats
+ */
+
 import type { SplitSlice } from "@/lib/stats";
 
 export function BarChart({

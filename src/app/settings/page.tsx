@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * @amber-capability tempo.sync
+ */
+
 import { useRef, useState } from "react";
 import { Button } from "@/components/shared/ui";
 import { ThemeToggle } from "@/components/settings/ThemeToggle";

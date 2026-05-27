@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * @amber-capability tempo.today
+ */
+
 import type { Instrument, Piece, Session } from "@/lib/types";
 import { formatDuration } from "@/lib/util/date";
 import { deleteSession } from "@/lib/sessions";

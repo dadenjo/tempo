@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * @amber-capability tempo.stats
+ */
+
 import { useMemo } from "react";
 import type { HeatmapCell } from "@/lib/stats";
 

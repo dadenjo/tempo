@@ -1,3 +1,7 @@
+/**
+ * @amber-capability tempo.api
+ */
+
 import { NextResponse } from "next/server";
 
 /**

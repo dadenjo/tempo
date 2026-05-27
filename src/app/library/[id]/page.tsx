@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * @amber-capability tempo.pieces
+ */
+
 import { useMemo, use } from "react";
 import { useStore } from "@/lib/state/store";
 import { formatDuration, dayKey, rangeDays } from "@/lib/util/date";

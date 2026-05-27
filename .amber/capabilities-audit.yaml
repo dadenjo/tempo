@@ -1,35 +1,157 @@
+# .amber/capabilities-audit.yaml
+# Business audit fields (B79). Sidecar to capabilities.md.
 capabilities:
+  tempo.api:
+    mission: "Provide a stable, versioned liveness endpoint for deployment verification and PWA integration."
+    owner: "engineering"
+    sla: "Response < 100 ms; static, no runtime dependencies"
+    dependencies:
+      - "next/server NextResponse"
+    risks:
+      - "Version string in this route is not automatically kept in sync with CURRENT_DATA_VERSION in src/lib/sync — drift will cause smoke tests to pass against a stale schema signal"
+    data_classes:
+      - "operational"
+    recovery_time: "instant (statically compiled route)"
+    stakeholders:
+      - "engineering"
   tempo.goals:
-    mission: "Persist user practice goals and evaluate progress against logged sessions."
-    risks: ["Piece-ready-by uses a hardcoded 600-minute = 100% heuristic (src/lib/goals/index.ts:102), which may not reflect actual piece difficulty", "Status logic returns 'behind' when a piece goal is misconfigured (per test at src/lib/goals/__tests__/goals.test.ts:58-78), which may mask configuration errors", "Progress evaluation depends on caller supplying the full sessions list; correctness hinges on upstream data completeness"]
-    data_classes: ["Goal records (type, targetMinutes, pieceId, dueDate, perWeek)", "Session references (durations, pieceId, instrument, dates)"]
-    stakeholders: ["practitioner/end user"]
+    mission: "Help musicians set measurable practice intentions and surface live progress so they can course-correct before a deadline or week ends."
+    owner: "product / frontend"
+    sla: "Goal evaluation < 100 ms against full local session history"
+    dependencies:
+      - "src/lib/sessions"
+      - "src/lib/state/store"
+      - "src/lib/types"
+      - "src/components/shared/ui"
+    risks:
+      - "evaluateGoal accuracy depends on complete local session history; data clear produces false missed-goal status"
+    data_classes:
+      - "operational"
+    recovery_time: "instant (client-only)"
+    stakeholders:
+      - "product"
+      - "engineering"
   tempo.instruments:
-    mission: "Persist and manage a user's instruments with a single-primary selection."
-    risks: ["Primary-flag invariant depends on the readwrite transaction in clearPrimaryFlag completing correctly across all rows", "getPrimaryInstrument fallback to the first item may mask cases where no primary is explicitly set"]
-    stakeholders: ["Client-side app users of the instruments module"]
+    mission: "Let musicians register and manage the instruments they practise, with a primary designation that removes daily setup friction."
+    owner: "product / frontend"
+    sla: "List render < 200 ms; no network dependency"
+    dependencies:
+      - "src/lib/persistence (via src/lib/instruments)"
+      - "src/lib/state/store"
+      - "src/lib/types"
+      - "src/components/shared/ui"
+    risks:
+      - "Deleting the only instrument leaves primary unset, breaking the timer's default instrument"
+    data_classes:
+      - "operational"
+    recovery_time: "instant (local IndexedDB)"
+    stakeholders:
+      - "product"
+      - "engineering"
   tempo.persistence:
-    mission: "Persist instruments, pieces, sessions, and goals locally in the browser and expose them to the UI."
-    risks: ["`getDB` throws when `indexedDB` is undefined (e.g., SSR or unsupported environments) [src/lib/persistence/db.ts:25]", "Schema is pinned at version 1 with no migration logic visible in the reviewed files [src/lib/persistence/db.ts:4-21]", "`ensureLoaded` guards against concurrent initial loads via a single `loadingPromise`, but no error handling is shown [src/lib/state/store.ts:56-61]", "Seed routine uses Math.sin-based pseudo-randomness, not cryptographically random [src/lib/seed/index.ts:111-114]"]
-    data_classes: [instruments, pieces, sessions, goals, meta]
+    mission: "Provide reliable, versioned, offline-capable local storage so all Tempo capabilities function without network access."
+    owner: "engineering"
+    sla: "getDB open < 50 ms; individual record read/write < 10 ms"
+    dependencies:
+      - "IndexedDB (browser API)"
+      - "src/lib/types"
+    risks:
+      - "IndexedDB storage quota exceeded on very large session histories"
+      - "Safari private-browsing mode restricts IndexedDB to session-scoped storage"
+      - "Schema migration on version bump risks silent data loss if migration logic is absent"
+    data_classes:
+      - "operational"
+    recovery_time: "no automatic recovery; data loss on browser storage clear unless user holds an export"
+    stakeholders:
+      - "engineering"
+      - "product"
   tempo.pieces:
-    mission: "Maintain a piece repertoire and identify neglected pieces from practice session history."
-    risks: ["pieceRotation hardcodes a 14-day neglect threshold (src/lib/pieces/index.ts:135) with no configurability visible", "filterPieces query matching is case-insensitive over title/composer only (src/lib/pieces/index.ts:82-98); other fields are not searchable", "Persistence relies on IndexedDB via getDB; data is client-local"]
-    data_classes: ["Piece records (title, composer, difficulty, status, instrumentId)", "Session records (used for rotation aggregation)"]
-    stakeholders: ["Musician/end user managing repertoire"]
+    mission: "Give musicians visibility into their full repertoire and the cumulative time invested in each piece."
+    owner: "product / frontend"
+    sla: "List render < 300 ms; detail aggregation < 150 ms for 60 days of sessions"
+    dependencies:
+      - "src/lib/pieces"
+      - "src/lib/state/store"
+      - "src/lib/util/date"
+      - "src/lib/persistence"
+    risks:
+      - "Low cohesion (0.34) between list and detail pages indicates split risk as piece editing or filtering features are added"
+      - "pieceRotation neglect flag uses a 14-day threshold hardcoded in lib — changing the rule requires a lib change"
+    data_classes:
+      - "operational"
+    recovery_time: "instant (client-only)"
+    stakeholders:
+      - "product"
+      - "engineering"
   tempo.sessions:
-    mission: "Store practice sessions and compute the day totals and streaks the rest of the app consumes."
-    risks: ["Streak and totals depend on accurate startedAt/endedAt values supplied by callers (src/lib/sessions/index.ts:32-52)", "Days under 60 seconds are intentionally excluded from streaks, which may surprise users with short sessions (src/lib/sessions/__tests__/sessions.test.ts:68-76, src/lib/sessions/index.ts:95-137)", "Persistence relies on IndexedDB via getDB; availability is tied to the browser storage layer (src/lib/sessions/index.ts:1-9)"]
-    data_classes: ["Session records with id, startedAt, endedAt, durationSec (src/lib/sessions/index.ts:32-52)"]
+    mission: "Expose complete practice history with filtering and correction capabilities so musicians trust the accuracy of their log."
+    owner: "product / frontend"
+    sla: "Client-side filter response < 100 ms for up to 10,000 sessions"
+    dependencies:
+      - "src/lib/sessions"
+      - "src/lib/state/store"
+      - "src/lib/util/date"
+      - "src/lib/types"
+    risks:
+      - "Client-side filtering over very large session arrays will degrade without pagination or virtualisation"
+    data_classes:
+      - "operational"
+    recovery_time: "instant (client-only)"
+    stakeholders:
+      - "product"
+      - "engineering"
   tempo.stats:
-    mission: "Aggregate session records into the metrics and shapes consumed by stats visualisations."
-    risks: ["Week boundary uses Monday 00:00 local to the provided `now` (src/lib/stats/index.ts:80-88); callers in differing timezones may see different week windows", "Level thresholds are hardcoded (10/20/45/120 minutes) and not configurable (src/lib/stats/index.ts:32-38)"]
-    data_classes: ["Session (durationSec, instrument, intent, timestamp fields referenced by aggregators)"]
+    mission: "Surface practice patterns from local session history to help musicians make informed decisions about how they spend their practice time."
+    owner: "product / frontend"
+    sla: "Full page render < 500 ms for 365 days of sessions"
+    dependencies:
+      - "src/lib/stats"
+      - "src/lib/sessions"
+      - "src/lib/pieces"
+      - "src/lib/state/store"
+    risks:
+      - "Low cohesion (0.27) across page, two chart components, and lib — chart components may diverge into separate concerns as visualisation expands"
+      - "No lazy loading; all 365 days computed synchronously on mount"
+    data_classes:
+      - "operational"
+    recovery_time: "instant (client-only)"
+    stakeholders:
+      - "product"
+      - "engineering"
   tempo.sync:
-    mission: "Provide client-side export and import of the app's IndexedDB data as versioned JSON."
-    risks: ["CURRENT_DATA_VERSION is hardcoded to 1; future schema changes require explicit migration handling (src/lib/sync/index.ts:10, 40-53)", "Import in replace mode calls resetDB before writing, which destroys existing data if the subsequent transaction fails (src/lib/sync/index.ts:55-85)"]
-    data_classes: [instruments, pieces, sessions, goals]
-  tempo.platform:
-    mission: "Provide shared domain types and date/id utilities used across the application."
-    risks: ["next.config.ts is empty aside from a placeholder comment (next.config.ts:3-7), so no platform-level Next.js configuration is in place.", "newId relies on Date.now plus a 6-character base36 random suffix (src/lib/util/id.ts:5-9); uniqueness is only verified in tests across 200 calls (src/lib/util/__tests__/id.test.ts:1-19)."]
-    data_classes: ["Instrument (src/lib/types/index.ts:16-23)", "Piece (src/lib/types/index.ts:36-47)", "Session (src/lib/types/index.ts:63-76)", "Goal (src/lib/types/index.ts:95-109)", "AppData (src/lib/types/index.ts:111-118)"]
+    mission: "Uphold the local-first promise by giving users safe, versioned data portability and a clear data-reset path."
+    owner: "product / frontend"
+    sla: "Export < 1 s for up to 50,000 sessions; import validation and write < 2 s"
+    dependencies:
+      - "src/lib/sync"
+      - "src/lib/persistence (resetDB)"
+      - "src/lib/state/store"
+      - "src/components/settings/ThemeToggle"
+    risks:
+      - "Import with a future schema version (> CURRENT_DATA_VERSION) is rejected — users on older builds cannot restore newer backups"
+      - "Data clear is irreversible if the user has no prior export"
+    data_classes:
+      - "operational"
+    recovery_time: "instant for clear; recovery requires a prior export file held by the user"
+    stakeholders:
+      - "product"
+      - "engineering"
+      - "legal"
+  tempo.today:
+    mission: "Provide a zero-friction daily practice entry point that builds habit through visible streaks and instant session logging."
+    owner: "product / frontend"
+    sla: "Page load < 500 ms; timer tick jitter < 50 ms"
+    dependencies:
+      - "src/lib/sessions"
+      - "src/lib/state/store"
+      - "src/lib/util/date"
+      - "src/lib/seed"
+    risks:
+      - "Timer drift when tab is backgrounded by browser throttling"
+      - "IndexedDB unavailable on first load produces blank today list"
+    data_classes:
+      - "operational"
+    recovery_time: "instant (client-only, no network dependency)"
+    stakeholders:
+      - "product"
+      - "engineering"

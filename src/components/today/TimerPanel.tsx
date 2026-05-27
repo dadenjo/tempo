@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * @amber-capability tempo.today
+ */
+
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button, Field, Input, Select, Textarea } from "@/components/shared/ui";
 import { formatClock } from "@/lib/util/date";

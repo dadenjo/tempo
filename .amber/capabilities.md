@@ -1,204 +1,310 @@
 ---
 capabilities:
-  - id: tempo.goals
-    name: tempo.goals
+  - id: tempo.today
+    name: tempo.today
     description: >-
-      Tracks practice goals that musicians set for themselves, including targets for time spent, repertoire mastery, or
-      skill development. Enables users to define aspirations and measure progress toward them.
+      The home dashboard where musicians start a timed practice session, watch the running clock, save completed
+      sessions, and view their current streak — composed from src/app/page.tsx and the TimerPanel, TodaySessionList, and
+      StreakBadge components.
     criticality: medium
     lifecycle: active
     file_path_patterns:
-      - src/lib/goals/
-    eyebrow: PRACTICE GOALS
-    headline: Turn aspirations into measurable practice targets
+      - src/app/layout.tsx
+      - src/app/page.tsx
+      - src/components/today/StreakBadge.tsx
+      - src/components/today/TimerPanel.tsx
+      - src/components/today/TodaySessionList.tsx
+    eyebrow: Daily Practice
+    headline: Start, time, and log today's practice
     body: >-
-      Define what success looks like for your practice—whether it's hours per week, mastering a concerto, or building a
-      new technique. Goals provide the scaffolding that gives every session a sense of direction and progress.
-    microcopy: Set targets that motivate
-    value_statement: Define and track personal practice ambitions with measurable progress signals.
+      The Today view is the app's entry point and primary workflow: pick an instrument and piece, hit Start, and the
+      timer runs until you save. The streak badge reinforces daily habit by making consecutive practice days visible at
+      a glance.
+    microcopy: Tap Start to begin a timed session; Save logs it instantly.
+    value_statement: Reduces session-start friction to under five seconds so musicians spend time playing, not administering.
     key_concepts:
-      - target setting
-      - progress tracking
-      - milestone completion
-      - repertoire goals
-      - time-based targets
+      - practice timer
+      - session logging
+      - daily streak
+      - instrument pre-selection
+      - idle/running/paused phases
     example_flow: >-
-      A violinist sets a goal of 10 hours of scales practice this month; the app tracks contributing sessions and
-      surfaces a progress bar.
-    visual_hint: progress-rings
+      User opens app → sees streak badge and today's total minutes → selects instrument and piece in TimerPanel →
+      presses Start → pauses midway → resumes → presses Save → session appears in TodaySessionList
+    visual_hint: Play/pause button with a running clock display, streak flame badge above it
+    panel_anchors:
+      - timer-panel
+      - streak-badge
+      - today-session-list
   - id: tempo.instruments
     name: tempo.instruments
     description: >-
-      Manages the catalog of musical instruments a user practices. Allows associating sessions and pieces with specific
-      instruments for organized tracking across a multi-instrument practice routine.
+      CRUD interface for the musician's instrument collection, exposing createInstrument, updateInstrument,
+      deleteInstrument, and a primary-instrument designation that pre-populates the timer default in tempo.today.
     criticality: medium
     lifecycle: active
     file_path_patterns:
-      - src/lib/instruments/
-    eyebrow: INSTRUMENT CATALOG
-    headline: Organise practice across every instrument you play
+      - src/app/instruments/page.tsx
+      - src/components/instruments/InstrumentForm.tsx
+      - src/lib/instruments/index.ts
+    eyebrow: Your Kit
+    headline: Manage instruments and set your primary
     body: >-
-      Maintain a personal catalog of instruments and route every session, piece, and statistic to the right one.
-      Multi-instrumentalists get clean separation while still seeing the bigger picture.
-    microcopy: One profile per instrument
-    value_statement: Manage a multi-instrument practice routine with clear per-instrument tracking.
+      Musicians register each instrument they own and mark one as primary; the primary instrument pre-populates the
+      TimerPanel so starting a session requires no repeated selection.
+    microcopy: Mark one instrument as primary to make it your default session pick.
+    value_statement: Eliminates per-session instrument selection by routing the primary instrument into every new timer automatically.
     key_concepts:
-      - instrument profiles
-      - session association
-      - piece tagging
-      - multi-instrument support
-    example_flow: A pianist adds both grand piano and harpsichord, tagging each session so weekly stats break down by instrument.
-    visual_hint: card-grid
-  - id: tempo.persistence
-    name: tempo.persistence
+      - instrument registration
+      - primary instrument
+      - emoji selection
+      - CRUD
+      - getPrimaryInstrument
+    example_flow: >-
+      User taps + Add instrument → fills InstrumentForm (name, emoji) → saves → marks it primary → TimerPanel on Today
+      now defaults to that instrument
+    visual_hint: Instrument icon grid with a star/primary badge on the active row
+    panel_anchors:
+      - instrument-list
+      - add-instrument
+      - primary-badge
+  - id: tempo.goals
+    name: tempo.goals
     description: >-
-      Handles durable local storage of user practice data so that sessions, pieces, goals, and stats survive across app
-      reloads. Provides the storage substrate underlying all domain modules.
+      Goal creation and live evaluation for three goal types (weekly-minutes, instrument-frequency, piece-ready-by),
+      with on-track/behind/missed status computed by evaluateGoal against the current session history.
     criticality: medium
     lifecycle: active
     file_path_patterns:
-      - src/lib/persistence/
-      - src/lib/state/
-      - src/lib/seed/
-    eyebrow: LOCAL STORAGE
-    headline: Durable storage that keeps practice data safe
+      - src/app/goals/page.tsx
+      - src/components/goals/GoalForm.tsx
+      - src/lib/goals/index.ts
+    eyebrow: Intentions
+    headline: Set goals and see if you're on track
     body: >-
-      Every session, goal, and piece is written to durable local storage so nothing is lost between visits. This
-      foundational layer underlies all domain modules and guarantees data survives reloads, restarts, and offline use.
-    microcopy: Your data, always there
-    value_statement: Persist all practice data locally so it survives across app reloads and offline use.
+      Goals give shape to a practice routine — a weekly-minutes target, an instrument-frequency commitment, or a
+      piece-ready-by deadline. evaluateGoal computes live status from logged sessions so users immediately see
+      behind/on-track/missed without manual calculation.
+    microcopy: A handful of intentions that keep you honest.
+    value_statement: >-
+      Converts abstract practice ambitions into measurable commitments with real-time progress feedback drawn from local
+      session history.
     key_concepts:
-      - local storage
-      - data durability
-      - offline-first
-      - storage substrate
-    example_flow: A user logs a session offline on a flight; the data is saved locally and remains intact when the app reopens.
-    visual_hint: layered-stack
+      - weekly-minutes
+      - instrument-frequency
+      - piece-ready-by
+      - evaluateGoal
+      - on-track/behind/missed status
+    example_flow: >-
+      User taps + Add goal → chooses weekly-minutes → sets 120 min target → saves → GoalsPage shows current week's
+      logged minutes and an on-track or behind badge
+    visual_hint: Progress bar row per goal with a colored status badge (green/amber/red)
+    panel_anchors:
+      - goal-list
+      - add-goal
+      - status-badge
   - id: tempo.pieces
     name: tempo.pieces
     description: >-
-      Manages the user's repertoire of musical pieces being learned or maintained. Tracks metadata about each piece and
-      links them to practice sessions and progress.
+      Browse and inspect the music piece repertoire: a list view with active/polishing/shelved status badges and a
+      detail page aggregating per-piece session history, total practice time, and a 60-day activity breakdown.
     criticality: medium
     lifecycle: active
     file_path_patterns:
-      - src/lib/pieces/
-    eyebrow: REPERTOIRE
-    headline: Manage the music you're learning and maintaining
+      - src/app/library/page.tsx
+      - src/app/library/[id]/page.tsx
+      - src/lib/pieces/index.ts
+    eyebrow: Repertoire
+    headline: Browse your pieces and track time per title
     body: >-
-      Catalog every piece in your active repertoire with metadata like composer, difficulty, and status. Link pieces to
-      sessions to see exactly how much time each work has received.
-    microcopy: Your living repertoire
-    value_statement: Organise the pieces you're studying and link them to practice activity.
+      The library gives musicians a status-tagged roster of pieces (active, polishing, shelved) and a per-piece detail
+      page that aggregates session history so they can see exactly how much time any single piece has received over the
+      last 60 days.
+    microcopy: See how much time you've given each piece.
+    value_statement: Surfaces per-piece practice investment so musicians can identify neglected repertoire and rebalance their focus.
     key_concepts:
-      - repertoire catalog
-      - piece metadata
-      - session linking
-      - learning status
+      - piece status
+      - polishing
+      - shelved
+      - session aggregation
+      - 60-day history
+      - pieceRotation
+      - filterPieces
     example_flow: >-
-      A guitarist adds Bach's Lute Suite No. 1, marks it as in-progress, and sees cumulative practice time grow with
-      each linked session.
-    visual_hint: list-with-detail
+      User opens Library → sees pieces tagged active/polishing → clicks a piece → detail page shows total practised,
+      session count, and 60-day breakdown
+    visual_hint: Card grid with colored status badges; detail page shows a mini bar chart for the 60-day window
+    panel_anchors:
+      - piece-list
+      - status-badge
+      - piece-detail
+      - session-history
   - id: tempo.sessions
     name: tempo.sessions
     description: >-
-      Records individual practice sessions, capturing what was practiced, for how long, and on which instrument or
-      piece. Forms the core activity log of the application.
+      Filterable, deletable log of all past practice sessions with search by date range, instrument, and intent, plus a
+      running total of minutes and matching-session count.
     criticality: medium
     lifecycle: active
     file_path_patterns:
-      - src/lib/sessions/
-    eyebrow: PRACTICE LOG
-    headline: Capture every practice session as it happens
+      - src/app/sessions/page.tsx
+    eyebrow: Practice Log
+    headline: Browse, filter, and correct your session history
     body: >-
-      Sessions are the heartbeat of Tempo—each one records duration, instrument, pieces worked on, and notes. Together
-      they form the activity log that powers goals, stats, and your sense of progress.
-    microcopy: The core practice log
-    value_statement: Record practice activity in structured sessions that fuel every other feature.
+      The sessions page is the historical ledger: every saved practice session appears here, searchable by date,
+      instrument, and intent. Delete operations let users correct logging mistakes without touching other data.
+    microcopy: Filter by instrument, intent, or date to find any session.
+    value_statement: Provides full auditability of practice history so musicians can verify their logged effort and correct mistakes.
     key_concepts:
-      - session logging
-      - duration tracking
-      - instrument association
-      - piece linking
-      - practice notes
+      - session log
+      - filter by instrument
+      - filter by intent
+      - date range filter
+      - deleteSession
+      - total minutes
     example_flow: >-
-      A user starts a 45-minute session on violin, tags two pieces, and saves notes about a tricky passage for next
-      time.
-    visual_hint: timeline
+      User opens Sessions → applies instrument filter → sees matching count and total minutes → finds an erroneous entry
+      → deletes it → count updates
+    visual_hint: Sortable list with filter chips above and a running total in the page header
+    panel_anchors:
+      - session-table
+      - filter-bar
+      - total-summary
   - id: tempo.stats
     name: tempo.stats
     description: >-
-      Aggregates session and goal data into meaningful statistics and visualisations about practice habits over time.
-      Helps users understand trends, consistency, and accomplishments.
+      Aggregated practice analytics rendered as a 365-day heatmap, instrument-split pie chart, intent-split bar chart,
+      and time-of-day histogram, all computed client-side from session history via src/lib/stats.
     criticality: medium
     lifecycle: active
     file_path_patterns:
-      - src/lib/stats/
-    eyebrow: INSIGHTS
-    headline: See your practice patterns and progress at a glance
+      - src/app/stats/page.tsx
+      - src/components/stats/Charts.tsx
+      - src/components/stats/Heatmap.tsx
+      - src/lib/stats/index.ts
+    eyebrow: Practice Analytics
+    headline: See a year of practice in four charts
     body: >-
-      Stats roll up sessions and goals into charts, streaks, and summaries that reveal how you're really practising.
-      Spot trends, celebrate consistency, and identify the instruments or pieces getting too little attention.
-    microcopy: Patterns in your practice
-    value_statement: Reveal practice trends, consistency, and accomplishments through aggregated visualisations.
+      Stats translates raw session records into four visualisations — a GitHub-style heatmap, instrument and intent
+      splits, and a time-of-day histogram — helping musicians understand practice patterns at a glance without any
+      server-side processing.
+    microcopy: A picture of how your practice is going.
+    value_statement: Converts local session data into actionable practice-pattern insights entirely in the browser.
     key_concepts:
-      - aggregations
-      - trends
-      - streaks
-      - visualisations
-      - habit analysis
-    example_flow: A weekly dashboard shows total hours, a streak counter, and a breakdown of time spent per piece.
-    visual_hint: charts-dashboard
+      - 365-day heatmap
+      - instrument split
+      - intent split
+      - time-of-day histogram
+      - heatmapCells
+      - levelForMinutes
+      - pieceRotation
+    example_flow: >-
+      User opens Stats → sees 365-day heatmap with intensity levels → scrolls to instrument-split pie → checks
+      intent-split bar chart and notices over-indexing on scales
+    visual_hint: GitHub-style contribution heatmap above two smaller pie and bar charts
+    panel_anchors:
+      - heatmap
+      - instrument-split
+      - intent-split
+      - time-of-day-chart
   - id: tempo.sync
     name: tempo.sync
     description: >-
-      Synchronises practice data between the local device and remote storage or across devices. Ensures users have a
-      consistent view of their practice history wherever they log in.
+      Data portability interface exposing JSON export, JSON import (with optional replace), and full data clear via
+      src/lib/sync, surfaced to the user on the Settings page alongside a theme toggle.
     criticality: medium
     lifecycle: active
     file_path_patterns:
-      - src/lib/sync/
-    eyebrow: CROSS-DEVICE SYNC
-    headline: Keep practice data consistent on every device
+      - src/app/settings/page.tsx
+      - src/components/shared/ui.tsx
+      - src/lib/sync/index.ts
+    eyebrow: Data & Settings
+    headline: Export, import, and reset your practice data
     body: >-
-      Sync reconciles local practice data with remote storage so you can log on your phone after a lesson and review on
-      your laptop at home. Conflicts are resolved cleanly so your history stays trustworthy.
-    microcopy: Practice anywhere, seen everywhere
-    value_statement: Synchronise practice data across devices so history is consistent everywhere you log in.
+      Settings is the user's data-ownership interface: export a full JSON backup, import a previous backup, clear all
+      IndexedDB data, and switch colour theme. importData validates schema version before writing and optionally
+      replaces existing records via resetDB.
+    microcopy: Everything lives in this browser's IndexedDB — export to back up, import to restore.
+    value_statement: Upholds the local-first contract by giving musicians portable, self-owned data backups and a safe reset path.
     key_concepts:
-      - remote sync
-      - cross-device
-      - conflict resolution
-      - data consistency
+      - JSON export
+      - JSON import
+      - data clear
+      - schema version negotiation
+      - CURRENT_DATA_VERSION
+      - theme toggle
     example_flow: >-
-      A student logs a session on their tablet during a lesson; minutes later it appears in stats on their home
-      computer.
-    visual_hint: device-mesh
-  - id: tempo.platform
-    name: tempo.platform
+      User opens Settings → clicks Export → browser downloads tempo-backup.json → switches device → opens Settings on
+      new browser → clicks Import → selects file → data restored; version mismatch causes rejection before any writes
+    visual_hint: Download and upload buttons in a card, with a destructive Clear button separated below
+    panel_anchors:
+      - export-button
+      - import-button
+      - clear-data
+      - theme-toggle
+  - id: tempo.persistence
+    name: tempo.persistence
     description: >-
-      Shared foundational scaffolding including type definitions, utilities, and Next.js application configuration that
-      supports all domain capabilities.
+      IndexedDB persistence layer exposing getDB (schema init + migrations) and resetDB (full store wipe), used by every
+      domain module as the single access point for local storage.
     criticality: medium
     lifecycle: active
     file_path_patterns:
-      - src/lib/types/
-      - src/lib/util/
-      - next.config.ts
-      - package.json
-      - tsconfig.json
-    eyebrow: FOUNDATION
-    headline: Shared scaffolding that every capability depends on
+      - src/lib/persistence/index.ts
+      - src/lib/persistence/db.ts
+    eyebrow: Local Storage
+    headline: Browser IndexedDB backing all practice data
     body: >-
-      Platform houses the type definitions, utilities, and Next.js configuration that hold the application together.
-      It's the common ground every domain capability builds on top of.
-    microcopy: The shared foundation
-    value_statement: Provide the shared types, utilities, and app configuration that underpin every capability.
+      Persistence is the foundation of Tempo's local-first promise: every session, instrument, piece, and goal is stored
+      in IndexedDB through getDB. All higher-level domain modules (sessions, instruments, pieces, goals, sync) call
+      through this layer rather than opening the database themselves.
+    microcopy: All data lives locally in your browser — no account required.
+    value_statement: Enables fully offline, zero-latency data access while keeping all user data under the user's direct control.
     key_concepts:
-      - type definitions
-      - shared utilities
-      - Next.js configuration
-      - scaffolding
-    example_flow: A new feature reuses platform-defined types and utility helpers instead of reinventing them per module.
-    visual_hint: foundation-block
+      - IndexedDB
+      - getDB
+      - resetDB
+      - schema migrations
+      - local-first
+      - data-format version
+    example_flow: >-
+      App boots → getDB opens IndexedDB and runs any pending migrations → state store hydrates → all domain modules read
+      and write through the same DB handle instantly, with no network round-trip
+    visual_hint: Database cylinder with an offline/local badge
+    panel_anchors:
+      - db-init
+      - read-path
+      - write-path
+      - migration-chain
+  - id: tempo.api
+    name: tempo.api
+    description: >-
+      Static health-check endpoint at GET /api/health that returns the current data-format version, enabling PWA shells
+      and CI smoke-test pipelines to verify a build is live and serving the expected schema version.
+    criticality: medium
+    lifecycle: active
+    file_path_patterns:
+      - src/app/api/health/route.ts
+    eyebrow: Health Check
+    headline: Versioned liveness endpoint for build verification
+    body: >-
+      A single force-static GET route returns the app's data-format version alongside a status string. Its consumers are
+      CI smoke tests and PWA wrapper scripts that need to confirm a deployment is serving the expected build before
+      marking it green.
+    microcopy: Returns data-format version for smoke-testing deployments.
+    value_statement: >-
+      Provides a lightweight, zero-dependency liveness signal for deployment pipelines and PWA wrappers at negligible
+      serving cost.
+    key_concepts:
+      - health endpoint
+      - data-format version
+      - force-static
+      - PWA shell integration
+      - CI smoke test
+    example_flow: >-
+      CI deploy completes → smoke test hits GET /api/health → receives { status, version } → asserts version matches
+      expected value → marks deploy green
+    visual_hint: Green pulse icon or checkmark badge
+    panel_anchors:
+      - health-route
 ---

@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * @amber-capability tempo.sync
+ */
+
 import { forwardRef, type ButtonHTMLAttributes, type InputHTMLAttributes, type SelectHTMLAttributes, type TextareaHTMLAttributes, type ReactNode } from "react";
 
 type ButtonVariant = "primary" | "ghost" | "danger";

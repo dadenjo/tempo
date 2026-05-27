@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * @amber-capability tempo.instruments
+ */
+
 import { useState } from "react";
 import { Button, Field, Input, Modal, Select } from "@/components/shared/ui";
 import { INSTRUMENT_FAMILIES, type Instrument, type InstrumentFamily } from "@/lib/types";

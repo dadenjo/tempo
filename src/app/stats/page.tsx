@@ -1,5 +1,9 @@
 "use client";
 
+/**
+ * @amber-capability tempo.stats
+ */
+
 import { useMemo } from "react";
 import { useStore } from "@/lib/state/store";
 import { heatmapCells, instrumentSplit, intentSplit, timeOfDayHistogram, totalMinutes } from "@/lib/stats";
