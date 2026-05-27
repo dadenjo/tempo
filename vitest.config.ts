@@ -13,8 +13,13 @@ export default defineConfig({
     setupFiles: ["./src/test/setup.ts"],
     coverage: {
       provider: "v8",
+      reporter: ["text", "json-summary", "lcov"],
       includeUntested: true,
-      include: ["src/lib/**/*.ts"],
+      include: [
+        "src/lib/**/*.ts",
+        "src/components/today/**/*.tsx",
+        "src/app/page.tsx",
+      ],
       exclude: [
         "src/lib/types/**",
         "src/lib/state/**",
