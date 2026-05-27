@@ -16,7 +16,8 @@
  *   - intentSplit(sessions: Session[]) -> SplitSlice[] [65]
  *   - totalMinutes(sessions: Session[]) -> number [74]
  *   - sessionsThisWeek(sessions: Session[], now?: Date) -> Session[] [80]
- * @evidence src/lib/stats/index.ts:6-7, src/lib/stats/index.ts:9-13, src/lib/stats/index.ts:16-30, src/lib/stats/index.ts:32-38, src/lib/stats/index.ts:41-49, src/lib/stats/index.ts:51-54, src/lib/stats/index.ts:56-63, src/lib/stats/index.ts:65-72, src/lib/stats/index.ts:74-78, src/lib/stats/index.ts:80-88
+ * @evidence src/lib/stats/index.ts:6-7, src/lib/stats/index.ts:9-13, src/lib/stats/index.ts:16-30, src/lib/stats/index.ts:32-38, src/lib/stats/index.ts:41-49, src/lib/stats/index.ts:51-54, src/lib/stats/index.ts:56-63, src/lib/stats/index.ts:65-72, src/lib/stats/index.ts:74-78, src/lib/stats/index.ts:80-88 *
+ * @amber-doc Aggregated practice analytics rendered as a 365-day heatmap, instrument-split pie chart, intent-split bar chart, and time-of-day histogram, all computed client-side from session history via src/lib/stats.
  */
 /**
  * @amber-capability tempo.stats

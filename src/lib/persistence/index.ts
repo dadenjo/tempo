@@ -9,7 +9,8 @@
  * @exports getDB, resetDB
  * @imports ./db (getDB, resetDB)
  * @key-functions
- * @evidence src/lib/persistence/index.ts:1-6, src/lib/persistence/index.ts:6
+ * @evidence src/lib/persistence/index.ts:1-6, src/lib/persistence/index.ts:6 *
+ * @amber-doc IndexedDB persistence layer exposing getDB (schema init + migrations) and resetDB (full store wipe), used by every domain module as the single access point for local storage.
  */
 /**
  * @amber-capability tempo.persistence

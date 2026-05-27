@@ -2,6 +2,7 @@
 
 /**
  * @amber-capability tempo.instruments
+ * @amber-doc CRUD interface for the musician's instrument collection, exposing createInstrument, updateInstrument, deleteInstrument, and a primary-instrument designation that pre-populates the timer default in tempo.today.
  */
 
 import { useState } from "react";

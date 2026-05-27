@@ -2,6 +2,7 @@
 
 /**
  * @amber-capability tempo.pieces
+ * @amber-doc Browse and inspect the music piece repertoire: a list view with active/polishing/shelved status badges and a detail page aggregating per-piece session history, total practice time, and a 60-day activity breakdown.
  */
 
 import { useMemo, useState } from "react";

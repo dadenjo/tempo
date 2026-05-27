@@ -15,7 +15,8 @@
  *   - deleteGoal(id: string) -> Promise<void> [58]
  *   - evaluateGoal(goal: Goal, sessions: Session[], now?: Date) -> GoalProgress [70]
  *   - dayProportionOfWeek(now: Date) -> number [137]
- * @evidence src/lib/goals/index.ts:6-10, src/lib/goals/index.ts:12-20, src/lib/goals/index.ts:22-26, src/lib/goals/index.ts:28-44, src/lib/goals/index.ts:46-56, src/lib/goals/index.ts:58-61, src/lib/goals/index.ts:63-68, src/lib/goals/index.ts:75-89, src/lib/goals/index.ts:90-115, src/lib/goals/index.ts:102, src/lib/goals/index.ts:116-135, src/lib/goals/index.ts:137-141
+ * @evidence src/lib/goals/index.ts:6-10, src/lib/goals/index.ts:12-20, src/lib/goals/index.ts:22-26, src/lib/goals/index.ts:28-44, src/lib/goals/index.ts:46-56, src/lib/goals/index.ts:58-61, src/lib/goals/index.ts:63-68, src/lib/goals/index.ts:75-89, src/lib/goals/index.ts:90-115, src/lib/goals/index.ts:102, src/lib/goals/index.ts:116-135, src/lib/goals/index.ts:137-141 *
+ * @amber-doc Goal creation and live evaluation for three goal types (weekly-minutes, instrument-frequency, piece-ready-by), with on-track/behind/missed status computed by evaluateGoal against the current session history.
  */
 /**
  * @amber-capability tempo.goals

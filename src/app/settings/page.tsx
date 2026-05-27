@@ -2,6 +2,7 @@
 
 /**
  * @amber-capability tempo.sync
+ * @amber-doc Data portability interface exposing JSON export, JSON import (with optional replace), and full data clear via src/lib/sync, surfaced to the user on the Settings page alongside a theme toggle.
  */
 
 import { useRef, useState } from "react";

@@ -17,7 +17,8 @@
  *   - deleteInstrument(id: string) -> Promise<void> [84]
  *   - getPrimaryInstrument() -> Promise<Instrument | undefined> [89]
  *   - clearPrimaryFlag(exceptId: string) -> Promise<void> [94]
- * @evidence src/lib/instruments/index.ts:6-8, src/lib/instruments/index.ts:18-25, src/lib/instruments/index.ts:31-38, src/lib/instruments/index.ts:45-63, src/lib/instruments/index.ts:65-82, src/lib/instruments/index.ts:84-87, src/lib/instruments/index.ts:89-92, src/lib/instruments/index.ts:94-104
+ * @evidence src/lib/instruments/index.ts:6-8, src/lib/instruments/index.ts:18-25, src/lib/instruments/index.ts:31-38, src/lib/instruments/index.ts:45-63, src/lib/instruments/index.ts:65-82, src/lib/instruments/index.ts:84-87, src/lib/instruments/index.ts:89-92, src/lib/instruments/index.ts:94-104 *
+ * @amber-doc CRUD interface for the musician's instrument collection, exposing createInstrument, updateInstrument, deleteInstrument, and a primary-instrument designation that pre-populates the timer default in tempo.today.
  */
 /**
  * @amber-capability tempo.instruments

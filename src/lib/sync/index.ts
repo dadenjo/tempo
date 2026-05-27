@@ -14,7 +14,8 @@
  *   - parseAppData(raw: string) -> AppData | null [40]
  *   - importData(raw: string, opts?: { replace?: boolean }) -> Promise<ImportResult> [55]
  *   - clearAllData() -> Promise<void> [87]
- * @evidence src/lib/sync/index.ts:10, src/lib/sync/index.ts:12-28, src/lib/sync/index.ts:30-32, src/lib/sync/index.ts:34-38, src/lib/sync/index.ts:40-53, src/lib/sync/index.ts:55-85, src/lib/sync/index.ts:61-62, src/lib/sync/index.ts:63-68, src/lib/sync/index.ts:87-89
+ * @evidence src/lib/sync/index.ts:10, src/lib/sync/index.ts:12-28, src/lib/sync/index.ts:30-32, src/lib/sync/index.ts:34-38, src/lib/sync/index.ts:40-53, src/lib/sync/index.ts:55-85, src/lib/sync/index.ts:61-62, src/lib/sync/index.ts:63-68, src/lib/sync/index.ts:87-89 *
+ * @amber-doc Data portability interface exposing JSON export, JSON import (with optional replace), and full data clear via src/lib/sync, surfaced to the user on the Settings page alongside a theme toggle.
  */
 /**
  * @amber-capability tempo.sync

@@ -14,6 +14,7 @@
  *   - _resetDbCacheForTests() -> Promise<void> [61]
  * @evidence src/lib/persistence/db.ts:4-5, src/lib/persistence/db.ts:7-21, src/lib/persistence/db.ts:25-47, src/lib/persistence/db.ts:32-42, src/lib/persistence/db.ts:49-58, src/lib/persistence/db.ts:60-71 *
  * @amber-capability tempo.persistence
+ * @amber-doc IndexedDB persistence layer exposing getDB (schema init + migrations) and resetDB (full store wipe), used by every domain module as the single access point for local storage.
  */
 import { openDB, type IDBPDatabase, type DBSchema } from "idb";
 import type { Goal, Instrument, Piece, Session } from "@/lib/types";

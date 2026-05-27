@@ -1,5 +1,6 @@
 /**
  * @amber-capability tempo.api
+ * @amber-doc Static health-check endpoint at GET /api/health that returns the current data-format version, enabling PWA shells and CI smoke-test pipelines to verify a build is live and serving the expected schema version.
  */
 
 import { NextResponse } from "next/server";

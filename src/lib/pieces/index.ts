@@ -16,7 +16,8 @@
  *   - deletePiece(id: string) -> Promise<void> [71]
  *   - filterPieces(pieces: Piece[], filter: PieceFilter) -> Piece[] [82]
  *   - pieceRotation(pieces: Piece[], sessions: Session[], now?: Date) -> PieceRotation[] [111]
- * @evidence src/lib/pieces/index.ts:6-9, src/lib/pieces/index.ts:22-26, src/lib/pieces/index.ts:33-51, src/lib/pieces/index.ts:53-69, src/lib/pieces/index.ts:71-74, src/lib/pieces/index.ts:82-98, src/lib/pieces/index.ts:111-138, src/lib/pieces/index.ts:117, src/lib/pieces/index.ts:135
+ * @evidence src/lib/pieces/index.ts:6-9, src/lib/pieces/index.ts:22-26, src/lib/pieces/index.ts:33-51, src/lib/pieces/index.ts:53-69, src/lib/pieces/index.ts:71-74, src/lib/pieces/index.ts:82-98, src/lib/pieces/index.ts:111-138, src/lib/pieces/index.ts:117, src/lib/pieces/index.ts:135 *
+ * @amber-doc Browse and inspect the music piece repertoire: a list view with active/polishing/shelved status badges and a detail page aggregating per-piece session history, total practice time, and a 60-day activity breakdown.
  */
 /**
  * @amber-capability tempo.pieces

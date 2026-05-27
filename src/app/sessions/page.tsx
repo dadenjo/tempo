@@ -2,6 +2,7 @@
 
 /**
  * @amber-capability tempo.sessions
+ * @amber-doc Filterable, deletable log of all past practice sessions with search by date range, instrument, and intent, plus a running total of minutes and matching-session count.
  */
 
 import { useMemo, useState } from "react";

@@ -2,6 +2,7 @@
 
 /**
  * @amber-capability tempo.goals
+ * @amber-doc Goal creation and live evaluation for three goal types (weekly-minutes, instrument-frequency, piece-ready-by), with on-track/behind/missed status computed by evaluateGoal against the current session history.
  */
 
 import { useMemo, useState } from "react";

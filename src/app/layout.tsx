@@ -1,5 +1,6 @@
 /**
  * @amber-capability tempo.today
+ * @amber-doc The home dashboard where musicians start a timed practice session, watch the running clock, save completed sessions, and view their current streak — composed from src/app/page.tsx and the TimerPanel, TodaySessionList, and StreakBadge components.
  */
 
 import type { Metadata } from "next";

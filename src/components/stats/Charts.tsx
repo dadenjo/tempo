@@ -2,6 +2,7 @@
 
 /**
  * @amber-capability tempo.stats
+ * @amber-doc Aggregated practice analytics rendered as a 365-day heatmap, instrument-split pie chart, intent-split bar chart, and time-of-day histogram, all computed client-side from session history via src/lib/stats.
  */
 
 import type { SplitSlice } from "@/lib/stats";
